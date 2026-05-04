@@ -33,3 +33,15 @@ Fin de session : alignement confirmé, prêt à attaquer le dev (setup projet �
 - [BDR-004](decisions/BDR-004.md) — Gestion des spritesheets hors-standard : warning + grille 9×8 par défaut
 - [BDR-005](decisions/BDR-005.md) — Cible sources : toutes marketplaces Codex-compatibles
 - [LRN-003](learnings/LRN-003.md) — Mapping états provisoire, ajustable post-terrain
+
+---
+
+Session de production du Product Brief via `/bmad-product-brief`. Baptiste a demandé un brief directement depuis le RFC existant et la mémoire agent, sans nouvelle découverte. Le workflow a pu sauter les stages 1 et 2 (intent + contextual discovery) grâce à la richesse du RFC et des 5 registres déjà remplis.
+
+Le script BMAD `resolve_customization.py` a échoué (Python absent du PATH Windows) — résolu par lecture manuelle de `customize.toml` sans perte de fonctionnalité. Le brief a été produit en une passe, sauvegardé dans `_bmad-output/planning-artifacts/product-brief.md`. 8 sections, ~1,5 page, cohérent avec toutes les décisions BDR-001→BDR-005.
+
+**Entrées clés :**
+
+- [LRN-004](learnings/LRN-004.md) — RFC complet + mémoire court-circuitent le discovery dans `/bmad-product-brief`
+- [BLK-002](blockers/BLK-002.md) — Python absent sur Windows, fallback manuel appliqué
+- [EVAL-003](evals/EVAL-003.md) — Product Brief produit, aucune anomalie
