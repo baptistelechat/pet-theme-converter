@@ -263,7 +263,7 @@ Afin de pouvoir contribuer un adapter fonctionnel en une session sans avoir à l
 
 **Étant donné** que `CONTRIBUTING.md` existe à la racine du repo
 **Quand** je lis la section "Écrire un Adapter"
-**Alors** elle référence `src/types.ts` (pour l'interface) et `src/adapters/clawd.ts` (comme exemple fonctionnel)
+**Alors** elle référence `src/types.ts` (pour l'interface) et mentionne `src/adapters/clawd.ts` comme exemple de référence à consulter une fois Epic 3 implémenté (placeholder acceptable : _"Voir `src/adapters/clawd.ts` — implémenté en Epic 3"_)
 **Et** elle documente le contrat `OutputAdapter.generate()` : inputs reçus, outputs attendus, usage du champ `warnings`
 
 **Étant donné** que `CONTRIBUTING.md` existe
@@ -466,9 +466,16 @@ Afin de convertir un pet sans consulter de documentation ni mémoriser de flags.
 **Quand** le prompt du mode de sortie est affiché
 **Alors** seule l'option `ZIP` est présentée — l'option `Install direct` n'apparaît pas
 
-**Étant donné** que Clawd on Desk est détecté ou qu'un chemin manuel valide a été fourni
+**Étant donné** que Clawd on Desk est détecté
 **Quand** le prompt du mode de sortie est affiché
 **Alors** les deux options `ZIP` et `Install direct` sont présentées
+
+**Étant donné** que Clawd on Desk n'est pas détecté dans les chemins standards
+**Quand** le prompt du mode de sortie est affiché
+**Alors** une troisième option `Install direct (entrer le chemin manuellement)` est également proposée
+**Et** si l'utilisateur sélectionne cette option, un prompt supplémentaire demande le chemin absolu vers le dossier `themes/` de Clawd
+**Et** ce chemin est validé (existence du dossier + accès en écriture) avant de continuer
+**Et** si le chemin est invalide, un message d'erreur explicite est affiché et le prompt est reposé
 
 **Étant donné** que la conversion démarre
 **Quand** chaque étape du pipeline s'exécute
@@ -544,7 +551,7 @@ Afin de détecter les régressions de compatibilité (binaires natifs, ESM) avan
 
 **Étant donné** qu'un push est effectué sur la branche `main`
 **Quand** le workflow CI se déclenche
-**Alors** chaque job exécute dans l'ordre : `pnpm install`, `pnpm build`, et `node dist/index.js --version` (ou équivalent pour vérifier l'exécutabilité)
+**Alors** chaque job exécute dans l'ordre : `pnpm install`, `pnpm build` — la réussite de `pnpm build` (exit 0, `dist/index.js` généré avec shebang `#!/usr/bin/env node`) est la validation d'exécutabilité suffisante pour la CI
 
 **Étant donné** que `sharp` et `apngasm-bin` sont en `optionalDependencies`
 **Quand** `pnpm install` s'exécute dans la CI sur les 3 OS
