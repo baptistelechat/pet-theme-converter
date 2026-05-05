@@ -17,6 +17,10 @@ Le dossier `.claude/memory/` contient 5 registres de mémoire persistante :
 
 1. Lire les 5 fichiers index `.claude/memory/*.md` pour le contexte global.
 2. Si une entrée spécifique est pertinente pour la session, lire `.claude/memory/[registre]/[ID].md`.
+3. Si `graphify-out/GRAPH_REPORT.md` existe, le lire avant d'explorer la codebase — il contient les god nodes et la structure des communautés. Pour naviguer ensuite dans le graphe, préférer les commandes graphify à `Grep` :
+   - `/graphify query "<question>"` — contexte large autour d'un concept (BFS)
+   - `/graphify path "<A>" "<B>"` — chemin le plus court entre deux concepts
+   - `/graphify explain "<concept>"` — détail et connexions d'un nœud
 
 ### Rituel de fermeture
 
