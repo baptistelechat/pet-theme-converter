@@ -1,11 +1,12 @@
 ---
 register: blockers
-last_updated: 2026-05-04
+last_updated: 2026-05-05
 ---
 
 ## Index
 
-| ID                             | Date       | Friction                                                                  | Statut |
-| ------------------------------ | ---------- | ------------------------------------------------------------------------- | ------ |
-| [BLK-001](blockers/BLK-001.md) | 2026-05-04 | Aucun pont entre l'écosystème Petdex/Codex et les apps Claude Code        | ouvert |
-| [BLK-002](blockers/BLK-002.md) | 2026-05-04 | `resolve_customization.py` non exécutable : Python absent du PATH Windows | résolu |
+| ID                             | Date       | Friction                                                                           | Statut |
+| ------------------------------ | ---------- | ---------------------------------------------------------------------------------- | ------ |
+| [BLK-001](blockers/BLK-001.md) | 2026-05-04 | Aucun pont entre l'écosystème Petdex/Codex et les apps Claude Code                 | ouvert |
+| [BLK-002](blockers/BLK-002.md) | 2026-05-04 | `resolve_customization.py` non exécutable : Python absent du PATH Windows          | résolu |
+| [BLK-003](blockers/BLK-003.md) | 2026-05-05 | `graphify` ne détecte pas les dossiers cachés — `.claude/memory/` absent du graphe | résolu |

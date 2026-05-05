@@ -1,6 +1,6 @@
 ---
 register: journal
-last_updated: 2026-05-04
+last_updated: 2026-05-05
 ---
 
 ## 2026-05-04
@@ -115,3 +115,22 @@ La chaîne de planification est maintenant entièrement validée et amendée. Pr
 
 - [EVAL-007](evals/EVAL-007.md) — Rapport readiness READY WITH CONDITIONS + 3 amendments epics.md
 - [LRN-010](learnings/LRN-010.md) — Coverage Map ≠ couverture ACs UX
+
+## 2026-05-05
+
+Session de génération du graphe de connaissance `/graphify` sur le projet `pet-theme-converter`. Deux runs ont été nécessaires : le premier a mis en évidence deux problèmes structurels, le second a produit un graphe propre et pertinent.
+
+**Run 1 — problèmes détectés :** Le dossier `_bmad/` a été inclus par défaut, injectant 20 nœuds AST issus des scripts Python du framework BMAD (`deep_merge()`, `_detect_keyed_merge_field()`, etc.) et générant 2 communautés entièrement parasites sur 8 (Community 0 "BMAD Customization Engine" et Community 1 "Config Resolution Pipeline"). Parallèlement, le dossier `.claude/memory/` — le plus riche du projet avec 35 fichiers — était absent : graphify ne scanne pas les dossiers dont le nom commence par `.` (dossiers cachés). Résultat : 55 nœuds, 8 communautés dont 25% de bruit, god nodes mémoire manquants.
+
+**Correction appliquée :** Création d'un fichier `.graphifyignore` à la racine excluant `_bmad/` et `graphify-out/`. Injection manuelle des 35 fichiers `.claude/memory/*.md` (hors `.obsidian/`) dans `.graphify_detect.json` après la détection, avant le lancement de l'extraction sémantique.
+
+**Run 2 — résultat :** 82 nœuds, 174 edges, 10 communautés propres. Les registres mémoire sont devenus des god nodes structurants : `Decisions Memory Index` (11 edges, rang 4), `Learnings Register Index` (10 edges, rang 6), `Agent Session Journal` (9 edges, rang 7). Le `Readiness Report` présente la centralité betweenness la plus élevée (0.478), confirmant son rôle de pont entre les 4 grandes communautés du projet. 6 hyperedges capturent les flows clés : pipeline de conversion, chaîne planning BMAD complète, et ecosystem bridge Petdex→Clawd.
+
+Deux patterns réutilisables documentés pour tout futur projet utilisant graphify avec BMAD et une mémoire `.claude/`.
+
+**Entrées clés :**
+
+- [BLK-003](blockers/BLK-003.md) — graphify ne détecte pas les dossiers cachés, résolu par injection manuelle
+- [LRN-011](learnings/LRN-011.md) — workaround injection `.claude/memory/` dans detect.json
+- [LRN-012](learnings/LRN-012.md) — `_bmad/` = framework interne, toujours exclure via `.graphifyignore`
+- [EVAL-009](evals/EVAL-009.md) — graphe v2 propre, 82 nœuds, keep
