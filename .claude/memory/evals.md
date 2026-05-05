@@ -16,3 +16,4 @@ last_updated: 2026-05-05
 | [EVAL-007](evals/EVAL-007.md) | 2026-05-04 | Rapport readiness + 3 amendments epics.md — READY WITH CONDITIONS, 4 issues majeures détectées | keep      |
 | [EVAL-008](evals/EVAL-008.md) | 2026-05-05 | Graphe graphify v1 — 55 nœuds pollués par `_bmad/`, `.claude/memory/` absent                   | deprecate |
 | [EVAL-009](evals/EVAL-009.md) | 2026-05-05 | Graphe graphify v2 — 82 nœuds propres, 10 communautés, god nodes mémoire présents              | keep      |
+| [EVAL-010](evals/EVAL-010.md) | 2026-05-05 | sprint-status.yaml généré — 4 epics, 14 stories, toutes en backlog                             | keep      |

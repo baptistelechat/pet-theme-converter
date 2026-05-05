@@ -134,3 +134,17 @@ Deux patterns réutilisables documentés pour tout futur projet utilisant graphi
 - [LRN-011](learnings/LRN-011.md) — workaround injection `.claude/memory/` dans detect.json
 - [LRN-012](learnings/LRN-012.md) — `_bmad/` = framework interne, toujours exclure via `.graphifyignore`
 - [EVAL-009](evals/EVAL-009.md) — graphe v2 propre, 82 nœuds, keep
+
+---
+
+Session `/bmad-sprint-planning` sur pet-theme-converter. Workflow exécuté en une passe sans interruption.
+
+Lecture du fichier `_bmad-output/planning-artifacts/epics.md` (4 epics, 14 stories, FR1–FR34). Le dossier `_bmad-output/implementation-artifacts/` était vide — aucune story existante. Le dossier a été créé, et `sprint-status.yaml` a été généré avec l'intégralité des entrées : 4 epics, 14 stories, 4 rétrospectives, toutes en `backlog`.
+
+Anomalie détectée sans impact bloquant : le champ `project_name` dans `_bmad/bmm/config.yaml` vaut `Français` (probablement une coquille lors du setup BMAD) — corrigé manuellement dans le sprint-status en utilisant `pet-theme-converter`.
+
+La chaîne de planification complète est opérationnelle. Prochaine étape : `/bmad-dev-story` Story 1.1 — initialisation du projet et configuration du build.
+
+**Entrées clés :**
+
+- [EVAL-010](evals/EVAL-010.md) — sprint-status.yaml généré, 4 epics / 14 stories en backlog
