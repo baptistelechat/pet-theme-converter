@@ -22,3 +22,7 @@ last_updated: 2026-05-05
 | [EVAL-013](evals/EVAL-013.md) | 2026-05-05 | Graphe graphify v4 — 46 nœuds, 95 edges, 10 communautés, sans mémoire, labels significatifs    | keep      |
 | [EVAL-014](evals/EVAL-014.md) | 2026-05-05 | Story 1.1 implémentée — build OK, typecheck OK, tous ACs satisfaits, story → review            | keep      |
 | [EVAL-015](evals/EVAL-015.md) | 2026-05-05 | Story 1.1 review complète — 2 patches + 2 déférés résolus opportunistement, story → done       | keep      |
+| [EVAL-016](evals/EVAL-016.md) | 2026-05-05 | Story 1.2 produite — skeleton `src/types.ts` + stubs Core/Adapters + règles anti-erreurs       | keep      |
+| [EVAL-017](evals/EVAL-017.md) | 2026-05-05 | Story 1.2 implémentée — 7 fichiers créés, build + typecheck OK, story → review                 | keep      |
+| [EVAL-018](evals/EVAL-018.md) | 2026-05-05 | Story 1.2 review complète — 4 JSDoc patches + 1 defer (Story 2.2) + 7 dismissed, story → done  | keep      |
+| [EVAL-019](evals/EVAL-019.md) | 2026-05-05 | Graphe graphify v5 — 90 nœuds, 207 edges, 13 communautés, dernier run avant purge              | keep      |

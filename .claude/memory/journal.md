@@ -257,3 +257,67 @@ Au total, 4 corrections appliquées sur les fichiers source : `.npmignore` (glob
 - [LRN-021](learnings/LRN-021.md) — `"types": ["node"]` requis avec `"moduleResolution": "bundler"`
 - [LRN-022](learnings/LRN-022.md) — faux positifs Blind Hunter sur versions packages
 - [EVAL-015](evals/EVAL-015.md) — Story 1.1 review complète, story → done
+
+---
+
+Session `/bmad-create-story 1.2` — création de la Story 1.2 : Interface publique OutputAdapter et types partagés.
+
+Le workflow a été exécuté de bout en bout. Le fichier story de la Story 1.1 était absent de `implementation-artifacts/` au moment de charger le contexte précédent — seul `deferred-work.md` était présent dans le dossier. Le contexte a été reconstitué depuis deux sources alternatives : le fichier de review existant (`reviews/epic-1-.../review-1-1-...md`) et le journal de session. Ce fallback s'est avéré suffisant — les learnings critiques (BDR-012, LRN-021, patrons de code) étaient tous disponibles.
+
+La story produite contient : 4 ACs BDD précis (types, classes d'erreur, build propre, frontières d'import), 7 tâches avec sous-tâches, le skeleton complet de `src/types.ts` (copier-coller ready), le skeleton de `src/core/state-mapping.ts` avec le `STATE_MAPPING` typé en placeholder, les stubs minimaux pour les 5 autres fichiers, et un bloc de règles anti-erreurs critiques : `Buffer` est un global Node (pas d'import), pattern `exitCode = 1 as const` (pas `number`), imports sans extension `.js` avec `moduleResolution: bundler`, `ClawdState` union type string (jamais enum), `pnpm typecheck` obligatoire en plus de `pnpm build`. Une table explicite liste les fichiers à ne PAS modifier (`src/cli/index.ts`, configs). Sprint-status mis à jour : story 1.2 → `ready-for-dev`.
+
+**Entrées clés :**
+
+- [LRN-023](learnings/LRN-023.md) — fichier story done absent, fallback via review + journal
+- [EVAL-016](evals/EVAL-016.md) — Story 1.2 produite, keep
+
+---
+
+Session `/bmad-dev-story 1.2` — implémentation de la Story 1.2 : Interface publique OutputAdapter et types partagés.
+
+La session a été la plus rapide du projet à ce jour. La story était dotée de skeletons copier-coller exacts dans ses Dev Notes pour tous les fichiers non-triviaux (`src/types.ts`, `src/core/state-mapping.ts`), ce qui a réduit l'implémentation à une série de `Write` sans diagnostic ni décision. 7 fichiers créés en une passe : `src/types.ts` (2 types, 4 interfaces, 3 classes d'erreur avec `exitCode = X as const`), `src/core/state-mapping.ts` (STATE_MAPPING typé, valeurs placeholder), et 5 stubs `export {};` (`fetch-spritesheet.ts`, `detect-grid.ts`, `slice-frames.ts`, `encode-apngs.ts`, `src/adapters/clawd.ts`).
+
+`pnpm build` → `dist/index.js` 207 B, exit 0 ✅. `pnpm typecheck` → zéro erreur TypeScript ✅. Tous les 4 ACs satisfaits. Story → review, sprint-status mis à jour.
+
+Pattern extrait : quand les Dev Notes incluent le code complet à écrire, le coût rédactionnel est récupéré 10× à l'implémentation — règle à appliquer systématiquement lors de la rédaction des stories futures.
+
+**Entrées clés :**
+
+- [LRN-024](learnings/LRN-024.md) — skeleton copier-coller → implémentation sans friction
+- [EVAL-017](evals/EVAL-017.md) — Story 1.2 implémentée, keep
+
+---
+
+Session `/bmad-code-review 1.2` — review de la Story 1.2 : Interface publique OutputAdapter et types partagés.
+
+Workflow exécuté en intégralité. Trois agents parallèles lancés : Blind Hunter (10 findings bruts), Edge Case Hunter (7 findings), Acceptance Auditor (AC1/AC2/AC4 satisfaits, AC3 confirmé par Dev Agent Record). Triage initial : 0 patch, 5 defer, 7 dismiss. Baptiste a alors signalé que D1/D3/D4/D5 n'avaient aucune raison d'être déférés — ce sont des JSDoc sur une API publique, fixes non-ambigus applicables immédiatement. Correction appliquée : 4 patches JSDoc dans `src/types.ts`, 1 seul defer conservé (STATE_MAPPING — nécessite les spritesheets réelles, Story 2.2).
+
+JSDoc ajoutés : `ThemeManifest.compatibleWith` (format `"clawd-on-desk@1.x"`), `ProgressCallback.progress` (plage 0–1), `AdapterInput.apngs` (Buffer non-vide requis), `AdapterOutput.path` (chemin absolu). `pnpm typecheck` → exit 0 après patches.
+
+Le seul defer légitime restant : `STATE_MAPPING` avec `frames: 9` hardcodé — valeurs placeholder intentionnelles (noté dans la story), validation contre la grille réelle déléguée à Story 2.2 (`detect-grid.ts`).
+
+7 findings dismissés, tous des faux positifs spec-defined : le Blind Hunter ne connaît pas le contexte architectural (outputDir requis par BDR-009, stubs `export {}` exigés par AC3, exitCode pattern documenté dans Dev Notes, etc.). Pattern cohérent avec [LRN-022](learnings/LRN-022.md).
+
+Pattern structurant capturé dans [LRN-025](learnings/LRN-025.md) : `defer` ≠ "je le ferai plus tard" — un `defer` est réservé aux changements nécessitant une story dédiée, des données externes ou une décision architecturale.
+
+Story 1.2 → `done`. Sprint-status, deferred-work.md et fichier de review tous mis à jour.
+
+**Entrées clés :**
+
+- [LRN-025](learnings/LRN-025.md) — defer vs patch : JSDoc sur interface publique = patch non-ambigu
+- [EVAL-018](evals/EVAL-018.md) — Story 1.2 review complète, story → done
+
+---
+
+Session de finalisation du pipeline graphify `--update` (v5) et décision de purge.
+
+La session a repris après compaction de contexte, au milieu du pipeline graphify `--update` lancé lors de la session précédente. Le subagent sémantique avait terminé et écrit `graphify-out/.graphify_chunk_01.json` (24 nœuds, 25 edges, 4 hyperedges sur les 5 fichiers modifiés). Le reste du pipeline a été complété : merge cache + semantic → `build_merge` (8 déduplications dont 3 fuzzy) → cluster (13 communautés) → `god_nodes` + `surprising_connections` → `to_json` + `to_html` + `GRAPH_REPORT.md`. Résultat final : 90 nœuds, 207 edges — graphe v5.
+
+Trois mismatches API graphify ont nécessité des diagnostics rapides : `build_from_json()` ne supporte pas `existing_graph` (→ `build_merge`), `graphify.analyze` n'exporte pas `analyze` (→ `god_nodes` + `surprising_connections`), et `report.generate` attend `total_files`/`total_words` dans `detect_result` (→ dict synthétique). Chacun résolu en une tentative.
+
+Après la completion du pipeline, Baptiste a demandé d'enregistrer la décision de purger graphify du projet. [BDR-017](decisions/BDR-017.md) créé : arrêt définitif — coût de maintenance (injection `.claude/memory/` requise, run manuel après chaque session, pas d'automatisation possible sur corpus 100% docs) supérieur à la valeur produite. [BDR-013](decisions/BDR-013.md) et [BDR-014](decisions/BDR-014.md) passés en `supersédé`. Ce graphe v5 est le dernier run graphify sur ce projet.
+
+**Entrées clés :**
+
+- [BDR-017](decisions/BDR-017.md) — Arrêt définitif de graphify sur pet-theme-converter
+- [EVAL-019](evals/EVAL-019.md) — graphe v5, dernier run avant purge

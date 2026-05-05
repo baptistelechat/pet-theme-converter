@@ -15,3 +15,4 @@ last_updated: 2026-05-05
 | [BLK-006](blockers/BLK-006.md) | 2026-05-05 | Write `.gitignore` échoué — fichier existait déjà avec contenu Obsidian + graphify | résolu |
 | [BLK-007](blockers/BLK-007.md) | 2026-05-05 | `"latest"` dans `package.json` non remplacé par pnpm install/add                   | résolu |
 | [BLK-008](blockers/BLK-008.md) | 2026-05-05 | `process` non reconnu au typecheck — `"types": ["node"]` manquant dans tsconfig    | résolu |
+| [BLK-009](blockers/BLK-009.md) | 2026-05-05 | `build_from_json()` sans support `--update` — `build_merge()` est la bonne API     | résolu |
