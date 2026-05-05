@@ -1,14 +1,6 @@
 # Obsidian vault
 .obsidian/
 
-# Graphify output
-**/.graphify_*.json
-**/.graphify_*.txt
-graphify-out/manifest.json
-graphify-out/cost.json
-graphify-out/obsidian/
-graphify-out/cache/
-
 # Build output
 dist/
 
