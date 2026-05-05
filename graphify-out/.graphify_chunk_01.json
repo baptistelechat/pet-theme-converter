@@ -1,0 +1,1813 @@
+{
+  "nodes": [
+    {
+      "id": "rfc_pet_theme_converter",
+      "label": "pet-theme-converter RFC & Roadmap",
+      "file_type": "document",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Baptiste",
+      "contributor": null
+    },
+    {
+      "id": "prd_pet_theme_converter",
+      "label": "Product Requirements Document — pet-theme-converter",
+      "file_type": "document",
+      "source_file": "_bmad-output/planning-artifacts/prd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": "Baptiste",
+      "contributor": null
+    },
+    {
+      "id": "architecture_doc",
+      "label": "Architecture Decision Document — pet-theme-converter",
+      "file_type": "document",
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "epics_doc",
+      "label": "Epic Breakdown — pet-theme-converter",
+      "file_type": "document",
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "implementation_readiness_report",
+      "label": "Implementation Readiness Assessment Report 2026-05-04",
+      "file_type": "document",
+      "source_file": "_bmad-output/planning-artifacts/implementation-readiness-report-2026-05-04.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "product_brief",
+      "label": "Product Brief — pet-theme-converter",
+      "file_type": "document",
+      "source_file": "_bmad-output/planning-artifacts/product-brief.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_md",
+      "label": "CLAUDE.md — Agent Memory Protocol",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "blockers_index",
+      "label": "Blockers Memory Index",
+      "file_type": "document",
+      "source_file": ".claude/memory/blockers.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "blk_001",
+      "label": "BLK-001 — No bridge between Petdex/Codex and Claude Code apps",
+      "file_type": "document",
+      "source_file": ".claude/memory/blockers/BLK-001.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "blk_002",
+      "label": "BLK-002 — resolve_customization.py not executable on Windows",
+      "file_type": "document",
+      "source_file": ".claude/memory/blockers/BLK-002.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "decisions_index",
+      "label": "Decisions Memory Index",
+      "file_type": "document",
+      "source_file": ".claude/memory/decisions.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "bdr_001",
+      "label": "BDR-001 — APNG output format instead of animated SVG",
+      "file_type": "document",
+      "source_file": ".claude/memory/decisions/BDR-001.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "bdr_002",
+      "label": "BDR-002 — Independent npm package + mini doc PRs distribution",
+      "file_type": "document",
+      "source_file": ".claude/memory/decisions/BDR-002.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "bdr_003",
+      "label": "BDR-003 — Core + interchangeable Output Adapters architecture",
+      "file_type": "document",
+      "source_file": ".claude/memory/decisions/BDR-003.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "bdr_004",
+      "label": "BDR-004 — Non-standard spritesheet handling: warning + default 9×8 grid",
+      "file_type": "document",
+      "source_file": ".claude/memory/decisions/BDR-004.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "bdr_005",
+      "label": "BDR-005 — Accept all Codex-compatible sources, not just Petdex",
+      "file_type": "document",
+      "source_file": ".claude/memory/decisions/BDR-005.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "bdr_006",
+      "label": "BDR-006 — 100% interactive CLI, no config file in v0.1",
+      "file_type": "document",
+      "source_file": ".claude/memory/decisions/BDR-006.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "bdr_007",
+      "label": "BDR-007 — Network fetch timeout = 30 seconds",
+      "file_type": "document",
+      "source_file": ".claude/memory/decisions/BDR-007.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "bdr_008",
+      "label": "BDR-008 — Pure functional pipeline + onProgress callbacks",
+      "file_type": "document",
+      "source_file": ".claude/memory/decisions/BDR-008.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "bdr_009",
+      "label": "BDR-009 — OutputAdapter interface: AdapterInput receives pre-encoded APNGs",
+      "file_type": "document",
+      "source_file": ".claude/memory/decisions/BDR-009.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "bdr_010",
+      "label": "BDR-010 — archiver library for ZIP in clawd.ts",
+      "file_type": "document",
+      "source_file": ".claude/memory/decisions/BDR-010.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "bdr_011",
+      "label": "BDR-011 — GitHub Actions CI: 3 OS × Node 18/20 matrix",
+      "file_type": "document",
+      "source_file": ".claude/memory/decisions/BDR-011.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-05-04",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_petdex",
+      "label": "Petdex — Open-source pet gallery for Codex Desktop",
+      "file_type": "rationale",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L13",
+      "source_url": "https://petdex.crafter.run/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_codex_desktop",
+      "label": "Codex Desktop — OpenAI AI agent with animated pet companions",
+      "file_type": "rationale",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L9",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_clawd_on_desk",
+      "label": "Clawd on Desk — Electron desktop pet app for Claude Code",
+      "file_type": "rationale",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L48",
+      "source_url": "https://github.com/rullerzhou-afk/clawd-on-desk",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_clyde",
+      "label": "Clyde — Tauri 2 + Svelte 5 desktop pet app",
+      "file_type": "rationale",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L50",
+      "source_url": "https://github.com/QingJ01/Clyde",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_spritesheet_format",
+      "label": "Codex Spritesheet Format — 8×9 grid, 192×208px cells, .webp",
+      "file_type": "rationale",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L18",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_apng_output",
+      "label": "APNG Output — Animated PNG format for Clawd theme states",
+      "file_type": "rationale",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L89",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_core_pipeline",
+      "label": "Core Pipeline — Pure functional image processing pipeline",
+      "file_type": "rationale",
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L140",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Functionally pure steps ensure testability; Core never depends on @clack/prompts; CLI layer attaches progress bar without coupling pipeline steps"
+    },
+    {
+      "id": "concept_output_adapter",
+      "label": "OutputAdapter Interface — Public contract for theme packaging modules",
+      "file_type": "rationale",
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L158",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Adapter receives pre-encoded APNGs so Core stays responsible for encoding; adapter only packages; interface stable from v0.1 for external contributors"
+    },
+    {
+      "id": "concept_state_mapping",
+      "label": "STATE_MAPPING — Centralized Petdex-to-Clawd state mapping constant",
+      "file_type": "rationale",
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L294",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_sprite_manifest",
+      "label": "SpriteManifest — Intermediate format describing spritesheet grid",
+      "file_type": "rationale",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L165",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_theme_json",
+      "label": "theme.json — Clawd on Desk v1.x theme manifest with compatibleWith field",
+      "file_type": "rationale",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L71",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_typed_errors",
+      "label": "Typed Error Classes — FetchError, ValidationError, InstallError with exitCode",
+      "file_type": "rationale",
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L264",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_progress_callback",
+      "label": "ProgressCallback — Optional progress injection into Core pipeline functions",
+      "file_type": "rationale",
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L284",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_clack_prompts",
+      "label": "@clack/prompts — Interactive CLI prompt library",
+      "file_type": "rationale",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L202",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_sharp",
+      "label": "sharp — WebP decoding and frame slicing library",
+      "file_type": "rationale",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L203",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_apngasm_bin",
+      "label": "apngasm-bin — APNG animation assembly binary",
+      "file_type": "rationale",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L204",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_archiver",
+      "label": "archiver — ZIP creation library for clawd adapter",
+      "file_type": "rationale",
+      "source_file": ".claude/memory/decisions/BDR-010.md",
+      "source_location": "L9",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_tsup",
+      "label": "tsup — ESM CLI bundle tool for npm publishing",
+      "file_type": "rationale",
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L103",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_tsx",
+      "label": "tsx — Direct TypeScript execution for local development",
+      "file_type": "rationale",
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L105",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_epic1",
+      "label": "Epic 1 — Project Foundation & Contribution Architecture",
+      "file_type": "rationale",
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L162",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_epic2",
+      "label": "Epic 2 — Core Conversion Pipeline",
+      "file_type": "rationale",
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L169",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_epic3",
+      "label": "Epic 3 — CLI Experience & Clawd Theme Delivery",
+      "file_type": "rationale",
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L177",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_epic4",
+      "label": "Epic 4 — CI, Documentation & npm Publication",
+      "file_type": "rationale",
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L185",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_zip_output",
+      "label": "ZIP Output Mode — Archive for manual Clawd theme installation",
+      "file_type": "rationale",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L247",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_direct_install",
+      "label": "Direct Install Mode — Auto-copy to Clawd on Desk themes folder",
+      "file_type": "rationale",
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L251",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_ci_matrix",
+      "label": "CI Matrix — 3 OS × Node 18/20 GitHub Actions workflow",
+      "file_type": "rationale",
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L199",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_contributing_md",
+      "label": "CONTRIBUTING.md — Adapter writing and submission guide",
+      "file_type": "rationale",
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L256",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_blk001_problem",
+      "label": "Incompatible Ecosystem Formats — Petdex WebP spritesheet vs Clawd APNG states",
+      "file_type": "rationale",
+      "source_file": ".claude/memory/blockers/BLK-001.md",
+      "source_location": "L9",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "prd_pet_theme_converter",
+      "target": "product_brief",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/prd.md",
+      "source_location": "frontmatter",
+      "weight": 1.0
+    },
+    {
+      "source": "prd_pet_theme_converter",
+      "target": "rfc_pet_theme_converter",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/prd.md",
+      "source_location": "frontmatter",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "prd_pet_theme_converter",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "frontmatter",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "product_brief",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "frontmatter",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "rfc_pet_theme_converter",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "frontmatter",
+      "weight": 1.0
+    },
+    {
+      "source": "epics_doc",
+      "target": "prd_pet_theme_converter",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "frontmatter",
+      "weight": 1.0
+    },
+    {
+      "source": "epics_doc",
+      "target": "architecture_doc",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "frontmatter",
+      "weight": 1.0
+    },
+    {
+      "source": "implementation_readiness_report",
+      "target": "prd_pet_theme_converter",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/implementation-readiness-report-2026-05-04.md",
+      "source_location": "frontmatter",
+      "weight": 1.0
+    },
+    {
+      "source": "implementation_readiness_report",
+      "target": "architecture_doc",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/implementation-readiness-report-2026-05-04.md",
+      "source_location": "frontmatter",
+      "weight": 1.0
+    },
+    {
+      "source": "implementation_readiness_report",
+      "target": "epics_doc",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/implementation-readiness-report-2026-05-04.md",
+      "source_location": "frontmatter",
+      "weight": 1.0
+    },
+    {
+      "source": "implementation_readiness_report",
+      "target": "product_brief",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/implementation-readiness-report-2026-05-04.md",
+      "source_location": "frontmatter",
+      "weight": 1.0
+    },
+    {
+      "source": "blockers_index",
+      "target": "blk_001",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/blockers.md",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "blockers_index",
+      "target": "blk_002",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/blockers.md",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "decisions_index",
+      "target": "bdr_001",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions.md",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "decisions_index",
+      "target": "bdr_002",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions.md",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "decisions_index",
+      "target": "bdr_003",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "decisions_index",
+      "target": "bdr_004",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "decisions_index",
+      "target": "bdr_005",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "decisions_index",
+      "target": "bdr_006",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions.md",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "decisions_index",
+      "target": "bdr_007",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions.md",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "decisions_index",
+      "target": "bdr_008",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions.md",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "decisions_index",
+      "target": "bdr_009",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "decisions_index",
+      "target": "bdr_010",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions.md",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "decisions_index",
+      "target": "bdr_011",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions.md",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_004",
+      "target": "bdr_005",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-004.md",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_005",
+      "target": "bdr_004",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-005.md",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_006",
+      "target": "bdr_003",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-006.md",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_007",
+      "target": "bdr_006",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-007.md",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_008",
+      "target": "bdr_003",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-008.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_009",
+      "target": "bdr_003",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-009.md",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_009",
+      "target": "bdr_008",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-009.md",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_010",
+      "target": "bdr_003",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-010.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_010",
+      "target": "bdr_009",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-010.md",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_011",
+      "target": "bdr_002",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-011.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "blk_001",
+      "target": "concept_blk001_problem",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/blockers/BLK-001.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "blk_002",
+      "target": "blk_001",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": ".claude/memory/blockers/BLK-002.md",
+      "source_location": null,
+      "weight": 0.5
+    },
+    {
+      "source": "bdr_001",
+      "target": "concept_apng_output",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-001.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_002",
+      "target": "concept_clawd_on_desk",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-002.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_003",
+      "target": "concept_core_pipeline",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-003.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_003",
+      "target": "concept_output_adapter",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-003.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_004",
+      "target": "concept_spritesheet_format",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-004.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_006",
+      "target": "concept_clack_prompts",
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": ".claude/memory/decisions/BDR-006.md",
+      "source_location": null,
+      "weight": 0.9
+    },
+    {
+      "source": "bdr_007",
+      "target": "concept_core_pipeline",
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": ".claude/memory/decisions/BDR-007.md",
+      "source_location": null,
+      "weight": 0.9
+    },
+    {
+      "source": "bdr_008",
+      "target": "concept_progress_callback",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-008.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_008",
+      "target": "concept_core_pipeline",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-008.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_009",
+      "target": "concept_output_adapter",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-009.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_010",
+      "target": "concept_archiver",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-010.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_010",
+      "target": "concept_zip_output",
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": ".claude/memory/decisions/BDR-010.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "bdr_011",
+      "target": "concept_ci_matrix",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/decisions/BDR-011.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_petdex",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_codex_desktop",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_clawd_on_desk",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_clyde",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_spritesheet_format",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_apng_output",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_state_mapping",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_sprite_manifest",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_core_pipeline",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L154",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_output_adapter",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_clack_prompts",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_sharp",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L203",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_apngasm_bin",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L204",
+      "weight": 1.0
+    },
+    {
+      "source": "rfc_pet_theme_converter",
+      "target": "concept_theme_json",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "concept_core_pipeline",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L140",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "concept_output_adapter",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L158",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "concept_typed_errors",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L264",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "concept_progress_callback",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L284",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "concept_state_mapping",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L294",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "concept_ci_matrix",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "concept_tsup",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "concept_tsx",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "concept_sharp",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "concept_apngasm_bin",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "concept_archiver",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L424",
+      "weight": 1.0
+    },
+    {
+      "source": "architecture_doc",
+      "target": "concept_clack_prompts",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "epics_doc",
+      "target": "concept_epic1",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L162",
+      "weight": 1.0
+    },
+    {
+      "source": "epics_doc",
+      "target": "concept_epic2",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "epics_doc",
+      "target": "concept_epic3",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "epics_doc",
+      "target": "concept_epic4",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L185",
+      "weight": 1.0
+    },
+    {
+      "source": "epics_doc",
+      "target": "concept_contributing_md",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_epic1",
+      "target": "concept_output_adapter",
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_epic1",
+      "target": "concept_contributing_md",
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_epic2",
+      "target": "concept_core_pipeline",
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_epic2",
+      "target": "concept_state_mapping",
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_epic3",
+      "target": "concept_theme_json",
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_epic3",
+      "target": "concept_zip_output",
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_epic3",
+      "target": "concept_direct_install",
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_epic4",
+      "target": "concept_ci_matrix",
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/epics.md",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_core_pipeline",
+      "target": "concept_sharp",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L380",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_core_pipeline",
+      "target": "concept_apngasm_bin",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L382",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_core_pipeline",
+      "target": "concept_state_mapping",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_core_pipeline",
+      "target": "concept_progress_callback",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_core_pipeline",
+      "target": "concept_typed_errors",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L264",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_output_adapter",
+      "target": "concept_apng_output",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_output_adapter",
+      "target": "concept_archiver",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L384",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_output_adapter",
+      "target": "concept_theme_json",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_output_adapter",
+      "target": "concept_zip_output",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_output_adapter",
+      "target": "concept_direct_install",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_spritesheet_format",
+      "target": "concept_petdex",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_spritesheet_format",
+      "target": "concept_codex_desktop",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_state_mapping",
+      "target": "concept_spritesheet_format",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_state_mapping",
+      "target": "concept_clawd_on_desk",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_sprite_manifest",
+      "target": "concept_spritesheet_format",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_theme_json",
+      "target": "concept_clawd_on_desk",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_blk001_problem",
+      "target": "concept_petdex",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/blockers/BLK-001.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_blk001_problem",
+      "target": "concept_clawd_on_desk",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/memory/blockers/BLK-001.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_clyde",
+      "target": "concept_clawd_on_desk",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L65",
+      "weight": 0.8
+    },
+    {
+      "source": "concept_sprite_manifest",
+      "target": "concept_state_mapping",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "concept_clack_prompts",
+      "target": "concept_progress_callback",
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md",
+      "source_location": "L284",
+      "weight": 1.0
+    },
+    {
+      "source": "prd_pet_theme_converter",
+      "target": "concept_clawd_on_desk",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/prd.md",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "prd_pet_theme_converter",
+      "target": "concept_petdex",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/prd.md",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "prd_pet_theme_converter",
+      "target": "concept_output_adapter",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/prd.md",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "product_brief",
+      "target": "concept_petdex",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/product-brief.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "product_brief",
+      "target": "concept_clawd_on_desk",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/product-brief.md",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "product_brief",
+      "target": "concept_clyde",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/product-brief.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "product_brief",
+      "target": "concept_core_pipeline",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/product-brief.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_zip_output",
+      "target": "concept_direct_install",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": "L247",
+      "weight": 0.9
+    },
+    {
+      "source": "concept_apng_output",
+      "target": "concept_spritesheet_format",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "docs/pet-theme-converter-RFC.md",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "concept_epic1",
+      "target": "concept_epic2",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/implementation-readiness-report-2026-05-04.md",
+      "source_location": "L331",
+      "weight": 0.9
+    },
+    {
+      "source": "concept_epic2",
+      "target": "concept_epic3",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/implementation-readiness-report-2026-05-04.md",
+      "source_location": "L332",
+      "weight": 0.9
+    },
+    {
+      "source": "concept_epic3",
+      "target": "concept_epic4",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "_bmad-output/planning-artifacts/implementation-readiness-report-2026-05-04.md",
+      "source_location": "L334",
+      "weight": 0.9
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "core_conversion_pipeline_flow",
+      "label": "Core Conversion Pipeline: spritesheet → frames → APNG → adapter output",
+      "nodes": [
+        "concept_core_pipeline",
+        "concept_sharp",
+        "concept_apngasm_bin",
+        "concept_output_adapter"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md"
+    },
+    {
+      "id": "cli_ux_layer",
+      "label": "CLI UX Layer: prompts + progress + messages",
+      "nodes": [
+        "concept_clack_prompts",
+        "concept_progress_callback",
+        "concept_typed_errors"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "_bmad-output/planning-artifacts/architecture.md"
+    },
+    {
+      "id": "ecosystem_bridge",
+      "label": "Ecosystem Bridge: Petdex/Codex spritesheet format → Clawd APNG theme",
+      "nodes": [
+        "concept_petdex",
+        "concept_spritesheet_format",
+        "concept_clawd_on_desk",
+        "concept_apng_output"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "docs/pet-theme-converter-RFC.md"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
