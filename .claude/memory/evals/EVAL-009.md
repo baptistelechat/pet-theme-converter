@@ -24,6 +24,6 @@ date: 2026-05-05
 
 ## Références
 
-- [LRN-011](../learnings/LRN-011.md) — injection manuelle `.claude/memory/`
+- LRN-011 — injection manuelle `.claude/memory/`
 - [LRN-012](../learnings/LRN-012.md) — exclusion `_bmad/`
 - [EVAL-008](EVAL-008.md) — version précédente dépréciée

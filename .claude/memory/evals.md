@@ -17,3 +17,8 @@ last_updated: 2026-05-05
 | [EVAL-008](evals/EVAL-008.md) | 2026-05-05 | Graphe graphify v1 — 55 nœuds pollués par `_bmad/`, `.claude/memory/` absent                   | deprecate |
 | [EVAL-009](evals/EVAL-009.md) | 2026-05-05 | Graphe graphify v2 — 82 nœuds propres, 10 communautés, god nodes mémoire présents              | keep      |
 | [EVAL-010](evals/EVAL-010.md) | 2026-05-05 | sprint-status.yaml généré — 4 epics, 14 stories, toutes en backlog                             | keep      |
+| [EVAL-011](evals/EVAL-011.md) | 2026-05-05 | Story 1.1 produite — anomalie `moduleResolution: "Node16"` détectée et corrigée vers `bundler` | keep      |
+| [EVAL-012](evals/EVAL-012.md) | 2026-05-05 | Graphe graphify v3 — 125 nœuds, 194 edges, 13 communautés, hook retiré                         | keep      |
+| [EVAL-013](evals/EVAL-013.md) | 2026-05-05 | Graphe graphify v4 — 46 nœuds, 95 edges, 10 communautés, sans mémoire, labels significatifs    | keep      |
+| [EVAL-014](evals/EVAL-014.md) | 2026-05-05 | Story 1.1 implémentée — build OK, typecheck OK, tous ACs satisfaits, story → review            | keep      |
+| [EVAL-015](evals/EVAL-015.md) | 2026-05-05 | Story 1.1 review complète — 2 patches + 2 déférés résolus opportunistement, story → done       | keep      |
