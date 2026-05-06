@@ -321,3 +321,57 @@ Après la completion du pipeline, Baptiste a demandé d'enregistrer la décision
 
 - [BDR-017](decisions/BDR-017.md) — Arrêt définitif de graphify sur pet-theme-converter
 - [EVAL-019](evals/EVAL-019.md) — graphe v5, dernier run avant purge
+
+## 2026-05-06
+
+Session `/bmad-create-story 1.3` — création de la Story 1.3 : Documentation de contribution (CONTRIBUTING.md).
+
+Session courte et sans friction. Story 1.3 est la troisième et dernière story de l'Epic 1. Sa particularité : c'est une story purement documentaire — aucun fichier TypeScript à créer ou modifier, aucune compilation requise. Le livrable unique est `CONTRIBUTING.md` à la racine du repo.
+
+La story produite contient un skeleton Markdown copier-coller complet couvrant les 3 ACs : section "Écrire un Adapter" (contrat `OutputAdapter.generate()`, tables `AdapterInput`/`AdapterOutput`, usage du champ `warnings`, placeholder `clawd.ts` → Epic 3), section setup (4 commandes pnpm, schéma Core/Adapters/CLI, règles de frontières), section soumission (enregistrement `src/cli/index.ts` + procédure PR). Une checklist manuelle de vérification post-création complète les Dev Notes. Le sprint-status a été mis à jour : story 1.3 → `ready-for-dev`.
+
+Correction de cohérence en marge : [BDR-017](decisions/BDR-017.md) (Arrêt définitif graphify, créé en session 2026-05-05) était absent de l'index `decisions.md` — ajouté lors du rituel de fermeture.
+
+Pattern extrait : les stories documentaires (CONTRIBUTING.md, README.md) ne se valident pas par exit code — elles nécessitent une checklist de lecture ACs. Documenté dans [LRN-026](learnings/LRN-026.md).
+
+**Entrées clés :**
+
+- [EVAL-020](evals/EVAL-020.md) — Story 1.3 produite, keep
+- [LRN-026](learnings/LRN-026.md) — pattern story documentaire sans compilation
+
+---
+
+Session `/bmad-dev-story 1.3` — implémentation de la Story 1.3 : Documentation de contribution (CONTRIBUTING.md).
+
+Session la plus courte du projet à ce jour. Livrable unique : `CONTRIBUTING.md` à la racine du repo. Le skeleton copier-coller fourni dans les Dev Notes a permis une création en une seule passe, sans diagnostic ni décision technique. Vérification manuelle des 3 ACs : tous couverts (AC1 — contrat `OutputAdapter.generate()` + placeholder `clawd.ts → Epic 3` ; AC2 — 4 commandes pnpm + schéma 3 couches + frontières modules ; AC3 — enregistrement `src/cli/index.ts` + procédure PR).
+
+Immédiatement après la création, Baptiste a demandé de réécrire le fichier en anglais. Le fichier initial avait été rédigé en français (conformément à `document_output_language: Français`), mais `CONTRIBUTING.md` est une convention GitHub ciblant des contributeurs internationaux — l'anglais s'impose. Réécriture complète effectuée, décision formalisée en [BDR-018](decisions/BDR-018.md). Pattern capturé dans [LRN-027](learnings/LRN-027.md) pour que les stories futures (README.md en Story 4.2) démarrent directement en anglais sans aller-retour.
+
+Aucun blocage, aucune compilation. Story → `review`, sprint-status mis à jour.
+
+**Entrées clés :**
+
+- [BDR-018](decisions/BDR-018.md) — GitHub community files en anglais
+- [LRN-027](learnings/LRN-027.md) — pattern à appliquer dès Story 4.2 (README.md)
+- [EVAL-021](evals/EVAL-021.md) — Story 1.3 implémentée, keep
+
+---
+
+Session `/bmad-code-review 1.3` — review de la Story 1.3 : Documentation de contribution (CONTRIBUTING.md).
+
+La session a débuté par un diagnostic Python à la demande de Baptiste : le premier appel Bash avait échoué à cause d'un problème de quoting des chemins Windows (chemins sans guillemets interprétés comme un seul token cassé). Le deuxième appel avec guillemets a fonctionné. Diagnostic confirmé : `python` = Python 3.14.3 installé, `python3` = stub Microsoft Store — cohérent avec [LRN-005](learnings/LRN-005.md).
+
+Trois agents parallèles lancés : Blind Hunter (12 findings bruts), Edge Case Hunter (17 findings bruts), Acceptance Auditor (AC1+AC2+AC3 tous satisfaits — 2 observations mineures sans impact). Après triage : 1 patch appliqué, 1 patch reclassifié defer, 6 defer, 19 dismissed.
+
+**P2 appliqué** : `"The 8 states available in ClawdState"` → `"The states available in ClawdState"` — le count en dur aurait pu silencieusement devenir obsolète si un état est ajouté en v0.2+.
+
+**P1 reclassifié en defer** : le patch demandait d'ajouter `pnpm lint` à la checklist PR de CONTRIBUTING.md. Or le script `lint` n'existe pas dans `package.json` (item 🔵 ouvert depuis Story 1.1). Appliquer l'instruction créerait une doc erronée pour les contributors. Reclassifié dans deferred-work.md, à appliquer après Story 4.x. Pattern capturé dans [LRN-028](learnings/LRN-028.md).
+
+Les 6 défers couvrent : scope pnpm link (global vs local), comportement warnings côté CLI (Epic 3), politique semver/breaking changes, politique de dépendances tierces, template PR GitHub, contrat outputDir (Epic 2). Aucun fixable opportunistement.
+
+Scan opportuniste de deferred-work.md : tous les items ouverts (Story 1.1 × 7, Story 1.2 × 1, Story 1.3 × 7) sont bloqués sur des stories dédiées ou des epics futures — aucune résolution immédiate possible. Story 1.3 → `done`. Sprint-status mis à jour.
+
+**Entrées clés :**
+
+- [LRN-028](learnings/LRN-028.md) — patch→defer si script npm inexistant
+- [EVAL-022](evals/EVAL-022.md) — Story 1.3 review complète, keep

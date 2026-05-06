@@ -23,3 +23,5 @@ last_updated: 2026-05-05
 | [BDR-014](decisions/BDR-014.md) | 2026-05-05 | Stratégie versionning graphify-out : outputs committés, cache gitignored          | supersédé |
 | [BDR-015](decisions/BDR-015.md) | 2026-05-05 | Findings de code review dans fichier dédié `reviews/` — jamais dans le story file | actif     |
 | [BDR-016](decisions/BDR-016.md) | 2026-05-05 | Règles workflow post-review stockées dans CLAUDE.md (pas dans custom toml skills) | actif     |
+| [BDR-017](decisions/BDR-017.md) | 2026-05-05 | Arrêt définitif de graphify sur pet-theme-converter                               | actif     |
+| [BDR-018](decisions/BDR-018.md) | 2026-05-06 | `CONTRIBUTING.md` (et futurs GitHub community files) rédigés en anglais           | actif     |
