@@ -212,7 +212,7 @@ Afin de pouvoir commencer à implémenter le convertisseur avec le bon outillage
 
 **Étant donné** que j'inspecte `tsconfig.json`
 **Quand** je vérifie ses options de compilation
-**Alors** il contient `"strict": true`, `"module": "Node16"`, `"target": "ESNext"`, `"moduleResolution": "Node16"`
+**Alors** il contient `"strict": true`, `"module": "ESNext"`, `"target": "ESNext"`, `"moduleResolution": "bundler"`
 
 **Étant donné** que j'inspecte `tsup.config.ts`
 **Quand** je vérifie sa configuration

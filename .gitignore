@@ -1,2 +1,9 @@
 # Obsidian vault
 .obsidian/
+.claude/memory/dashboard.md
+
+# Build output
+dist/
+
+# Dependencies
+node_modules/
