@@ -48,7 +48,17 @@ Statuts : 🔵 Ouvert | ✅ Résolu | 🚫 Annulé
 ## Deferred from: code review of 1-2-interface-publique-outputadapter-et-types-partages (2026-05-05)
 
 - ✅ **ThemeManifest.compatibleWith non validé** — Résolu dans review Story 1.2 (2026-05-05) : JSDoc `/** Format attendu : "clawd-on-desk@1.x" */` ajouté sur le champ.
-- 🔵 **STATE_MAPPING : valeurs placeholder à valider contre la spritesheet réelle** — `frames: 9` / `row: 0-7` sont des stubs intentionnels. Story 2.2 devra valider que la spritesheet a exactement 8 lignes avant de consommer STATE_MAPPING, sinon risque de découpe silencieuse hors-bornes.
+- ✅ **STATE_MAPPING : valeurs placeholder à valider contre la spritesheet réelle** — Résolu dans Story 2.2 (2026-05-07) : correction `frames: 9` → `frames: 8` sur les 8 états, et `detectGrid` valide les dimensions via sharp.
 - ✅ **ProgressCallback : plage de `progress` non documentée** — Résolu dans review Story 1.2 (2026-05-05) : JSDoc `@param progress 0–1` ajouté sur le type.
 - ✅ **AdapterInput.apngs : aucune contrainte de taille minimum sur Buffer** — Résolu dans review Story 1.2 (2026-05-05) : JSDoc documentant l'exigence de Buffer non-vide ajouté.
 - ✅ **AdapterOutput.path : absolu vs. relatif non spécifié** — Résolu dans review Story 1.2 (2026-05-05) : JSDoc `/** Must be an absolute filesystem path. */` ajouté sur le champ.
+
+---
+
+## Deferred from: code review of 2-2-detection-de-la-grille-et-state-mapping (2026-05-07)
+
+- ✅ **D1 — Buffer vide → ValidationError générique** — Résolu opportunistement (2026-05-07) : guard `buffer.length === 0` ajouté en tête de `detectGrid`, lance `ValidationError("Buffer vide : aucune donnée de spritesheet à lire.")` avant tout appel sharp.
+- 🔵 **D2 — Math.round masque spritesheets non-alignées** — `cellWidth`/`cellHeight` arrondis peuvent produire des valeurs qui ne reconstituent pas les dimensions réelles ; `sliceFrames` doit en tenir compte lors de la découpe. Scope Story 2.3.
+- 🔵 **D3 — `detectGrid` sans `onProgress`** — Contrairement à `fetchSpritesheet`, `detectGrid` n'accepte pas de callback de progression. L'étape sera invisible dans la barre de progression CLI. Scope Story 3.3.
+- 🔵 **D4 — `ValidationError` mélange format invalide et erreur opérationnelle** — Les erreurs sharp (I/O, mémoire) et les vrais formats invalides sont tous enveloppés dans `ValidationError` sans distinction. Architecture actuelle sans erreur opérationnelle dédiée. Scope architectural.
+- 🔵 **D5 — `frames: 8` non synchronisé avec `STANDARD_COLS`** — Si `STANDARD_COLS` est modifié dans `detect-grid.ts`, `frames` dans `state-mapping.ts` ne sera pas mis à jour automatiquement. Aucune assertion runtime. Scope Story 2.3 / tests futurs.
