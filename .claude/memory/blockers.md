@@ -16,3 +16,5 @@ last_updated: 2026-05-05
 | [BLK-007](blockers/BLK-007.md) | 2026-05-05 | `"latest"` dans `package.json` non remplacé par pnpm install/add                   | résolu |
 | [BLK-008](blockers/BLK-008.md) | 2026-05-05 | `process` non reconnu au typecheck — `"types": ["node"]` manquant dans tsconfig    | résolu |
 | [BLK-009](blockers/BLK-009.md) | 2026-05-05 | `build_from_json()` sans support `--update` — `build_merge()` est la bonne API     | résolu |
+| [BLK-010](blockers/BLK-010.md) | 2026-05-07 | `declare module` inline → TS2666 (augmentation, pas déclaration ambiante)          | résolu |
+| [BLK-011](blockers/BLK-011.md) | 2026-05-07 | `apngasm-bin` ENOENT — postinstall bloqué par pnpm, binaire non déployé            | résolu |

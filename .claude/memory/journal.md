@@ -407,3 +407,266 @@ Session courte et sans friction. Unique opération : exécution du skill `pr-des
 **Entrées clés :**
 
 - [EVAL-024](evals/EVAL-024.md) — PR description `epic-1 → development`, keep
+
+---
+
+Session `/bmad-create-story 2.1` — création de la Story 2.1 : Téléchargement et validation de la spritesheet.
+
+Première story de l'Epic 2. La session a été fluide et sans blocage. L'analyse de contexte a couvert les 5 registres mémoire, le sprint-status, l'epics.md, l'architecture, les fichiers source existants (`src/types.ts`, `src/core/state-mapping.ts`, `src/core/fetch-spritesheet.ts` stub, `package.json`, `tsconfig.json`, `src/cli/index.ts`) et le deferred-work.
+
+La story produite couvre 6 ACs BDD (URL .webp/.png, timeout AbortController, Content-Type non-image, chemin local existant/inexistant, `onProgress` optionnel) et inclut un skeleton copier-coller complet de `src/core/fetch-spritesheet.ts` utilisant le `fetch()` natif Node 18+ — aucune dépendance HTTP à ajouter. Un pattern subtil a été détecté à la conception : sans vérification `response.ok` avant le check Content-Type, une URL 404 retournant `text/html` déclencherait une `ValidationError` au lieu de la `FetchError` attendue. Le skeleton corrige ce cas dès le départ ([LRN-031](learnings/LRN-031.md)).
+
+Les 6 URLs de test Petdex de la rétrospective Epic 1 ([LRN-030](learnings/LRN-030.md)) sont référencées dans les Dev Notes pour la validation manuelle. Sprint-status mis à jour : `epic-2` → `in-progress`, story 2.1 → `ready-for-dev`.
+
+**Entrées clés :**
+
+- [EVAL-025](evals/EVAL-025.md) — Story 2.1 produite, keep
+- [LRN-031](learnings/LRN-031.md) — séquence `response.ok` → Content-Type pour typer FetchError vs ValidationError
+
+---
+
+Session `/bmad-dev-story 2.1` — implémentation de la Story 2.1 : Téléchargement et validation de la spritesheet.
+
+Le stub `export {};` de `src/core/fetch-spritesheet.ts` a été remplacé par l'implémentation complète (82 lignes) en suivant exactement le skeleton copier-coller du Dev Notes — zéro friction, pattern [LRN-024](learnings/LRN-024.md) confirmé une deuxième fois. L'implémentation couvre la détection URL vs chemin local (`new URL()`), le téléchargement via `fetch()` natif Node 18+ avec `AbortController` (timeout 30s), la séquence correcte `response.ok` → Content-Type ([LRN-031](learnings/LRN-031.md)), la lecture locale via `node:fs/promises`, et le callback `onProgress` optionnel.
+
+`pnpm build` → exit 0, `dist/index.js` 207 B. `pnpm typecheck` → exit 0. Frontières architecturales respectées (aucun import `@clack/prompts`, `src/cli/`, `src/adapters/`).
+
+**Lacune de test signalée par Baptiste :** pour valider AC4 ("chemin local → Buffer"), j'avais utilisé `./package.json` — un fichier JSON, pas une image. Baptiste a signalé que ce n'était pas représentatif. J'ai téléchargé une vraie spritesheet `.webp` (1,3 Mo via `curl`) et retesté. Les 14 cas passent, dont les 6 spritesheets Petdex réelles de la rétrospective Epic 1 (`.webp` + `.png` + nom de fichier variable). Pattern capturé dans [LRN-032](learnings/LRN-032.md).
+
+Story 2.1 → `review`. Sprint-status mis à jour.
+
+**Entrées clés :**
+
+- [EVAL-026](evals/EVAL-026.md) — Story 2.1 implémentée, keep
+- [LRN-032](learnings/LRN-032.md) — tests AC "fichier local image" : toujours utiliser un vrai fichier du type attendu
+
+---
+
+Session `/bmad-code-review 2.1` — review de la Story 2.1 : Téléchargement et validation de la spritesheet.
+
+Workflow exécuté en intégralité. Trois agents parallèles lancés : Blind Hunter (13 findings bruts), Edge Case Hunter (14 findings bruts), Acceptance Auditor (6 ACs tous satisfaits, 3 observations mineures). Après déduplication et triage : 3 patch, 8 defer, 11 dismissed.
+
+**Patches appliqués immédiatement :**
+
+- **P1** — `contentType.toLowerCase().startsWith("image/")` : les headers HTTP sont case-insensitive par RFC 7231 ; un serveur non-conforme peut retourner `"Image/PNG"` déclenchant un faux `ValidationError`. Fix trivial, zéro trade-off.
+- **P2** — `export interface FetchOptions` : l'interface apparaissait dans la signature publique de `fetchSpritesheet` sans être exportée — les consumers externes ne pouvaient pas la référencer.
+- **P3** — `catch (err) { throw new FetchError(\`...: ${err.message}\`) }`dans`fetchFromLocal`: le catch générique masquait`EACCES`, `EISDIR` derrière "Fichier introuvable" — message activement trompeur.
+
+`pnpm build` → exit 0, `pnpm typecheck` → exit 0 après les 3 patches. Story 2.1 → `done`. Sprint-status mis à jour. Opportunité détectée en passant : epic-1 était encore `in-progress` malgré toutes les stories + rétrospective à `done` — corrigé en `done`.
+
+Les 8 defers sont tous scopés Stories 3.x (validation CLI layer, messages d'erreur, protocoles non-HTTP, timeout négatif) ou épics futurs (limit taille, Content-Type allowlist). Aucun résolvable opportunistement.
+
+**Entrées clés :**
+
+- [EVAL-027](evals/EVAL-027.md) — Story 2.1 review complète, keep
+- [LRN-033](learnings/LRN-033.md) — HTTP Content-Type headers case-insensitive
+- [LRN-034](learnings/LRN-034.md) — catch {} filesystem → propager err.message
+
+---
+
+Session `/bmad-create-story 2.2` — création de la Story 2.2 : Détection de la grille et STATE_MAPPING.
+
+Session courte et précise. L'analyse de contexte a couvert les 5 registres mémoire, le sprint-status, l'epics.md, l'architecture, les fichiers source existants (`src/types.ts`, `src/core/state-mapping.ts`, `src/core/detect-grid.ts` stub, `src/core/fetch-spritesheet.ts` implémenté en Story 2.1) et le deferred-work.
+
+La story produite couvre 3 ACs BDD et inclut deux décisions de conception structurantes. Première décision : `GridInfo` est exporté depuis `detect-grid.ts` et non depuis `src/types.ts` — les types intermédiaires du pipeline Core restent dans leur module source, `types.ts` étant réservé à l'API publique des adapters ([BDR-019](decisions/BDR-019.md)). Deuxième décision : correction du placeholder `frames: 9` → `frames: 8` dans `STATE_MAPPING`, justifiée mathématiquement (1536px ÷ 8 colonnes = 192px → 8 colonnes = 8 frames par état). Ce bug de placeholder documenté depuis la review Story 1.2 est résolu dans cette story avant que `sliceFrames` (Story 2.3) ne le consomme — évite une découpe hors-bornes silencieuse ([LRN-035](learnings/LRN-035.md)).
+
+En post-création, Baptiste a demandé d'enrichir le protocole de test avec des fichiers locaux (1 `.webp` + 1 `.png` téléchargés via `curl`) en complément des 6 URLs de la rétrospective Epic 1. Pattern formalisé : toute story Core I/O doit couvrir URL ET chemin local dans ses Dev Notes de validation ([LRN-036](learnings/LRN-036.md)). Sprint-status mis à jour : story 2.2 → `ready-for-dev`.
+
+**Entrées clés :**
+
+- [BDR-019](decisions/BDR-019.md) — Types intermédiaires Core dans leur module source, pas `types.ts`
+- [LRN-035](learnings/LRN-035.md) — Grille Petdex : 8 colonnes = 8 frames (correction `frames: 9` → `8`)
+- [EVAL-028](evals/EVAL-028.md) — Story 2.2 produite, keep
+
+---
+
+Session `/bmad-dev-story 2.2` — implémentation de la Story 2.2 : Détection de la grille et STATE_MAPPING.
+
+Session courte et sans blocage. Deux fichiers modifiés : `src/core/detect-grid.ts` (stub `export {};` → implémentation complète, 57 lignes — interface `GridInfo` exportée depuis ce fichier conformément à [BDR-019](decisions/BDR-019.md), `sharp(buffer).metadata()`, calcul `cellWidth`/`cellHeight` via `Math.round`, spread conditionnel `expectedWidth`/`expectedHeight` uniquement si `isStandard: false`) et `src/core/state-mapping.ts` (correction `frames: 9` → `frames: 8` sur les 8 états — [LRN-035](learnings/LRN-035.md)).
+
+Le skeleton copier-coller des Dev Notes a permis une implémentation en une seule passe — pattern [LRN-024](learnings/LRN-024.md) confirmé une troisième fois sur ce projet. `pnpm build` et `pnpm typecheck` : exit 0. Validation manuelle via script temporaire `test-2-2.mjs` (node --import tsx/esm) : 32/32 assertions réussies — AC1 × 4 scénarios (URL .webp, URL .png, local .webp, local .png), AC2 (PNG factice 1520×1854 → `isStandard: false, expectedWidth: 192, expectedHeight: 208`, aucune exception), AC3 (STATE_MAPPING — 8 états, tous `frames: 8`). Les fichiers temporaires (`test-2-2.mjs`, `test-sprite.webp`, `test-sprite.png`) ont été supprimés après validation.
+
+En fin de session, Baptiste a demandé si les tests avaient bien été exécutés — il n'avait pas vu la création et la suppression du script temporaire. La séquence était bien passée mais trop rapide pour être visible. Pattern capturé dans [LRN-037](learnings/LRN-037.md) : annoncer explicitement chaque phase (création, exécution, résultats, suppression) comme étapes distinctes.
+
+Story 2.2 → `review`. Sprint-status mis à jour.
+
+**Entrées clés :**
+
+- [LRN-037](learnings/LRN-037.md) — visibilité des phases de validation temporaire
+- [EVAL-029](evals/EVAL-029.md) — Story 2.2 implémentée, keep
+
+---
+
+Session `/bmad-code-review 2.2` — review complète de la Story 2.2 : Détection de la grille et STATE_MAPPING.
+
+Workflow exécuté en intégralité. Trois agents parallèles lancés : Blind Hunter (11 findings bruts), Edge Case Hunter (5 findings JSON), Acceptance Auditor (0 violations — tous ACs et contraintes architecturales satisfaits). Triage : 3 patches, 5 defers, 7 dismissed.
+
+**Patches appliqués :** (P1) commentaires inline sur les champs `isStandard`, `expectedWidth`, `expectedHeight` de `GridInfo` ; (P2) commentaire sur `STANDARD_ROWS = 9` expliquant que 9 lignes existent dans la spritesheet Petdex mais seulement 8 sont utilisées par Clawd (row 8 ignoré) ; (P3) commentaire sur `frames: 8` dans `state-mapping.ts` rappelant que 8 colonnes = 8 frames/état.
+
+**Résolution opportuniste :** D1 (buffer vide → message générique) reclassifié de defer vers fix immédiat sur instruction de Baptiste ("Fix les patch et defers"). Guard `buffer.length === 0` ajouté en tête de `detectGrid` (2 lignes). Pattern extrait dans [LRN-038](learnings/LRN-038.md) : quand l'utilisateur demande de fixer les defers, scanner ceux qui sont trivials (< 5 lignes, pas de story dédiée) et les appliquer immédiatement.
+
+**deferred-work.md :** item Story 1.2 (`STATE_MAPPING placeholder frames: 9`) marqué ✅ (résolu par implémentation Story 2.2), D1 Story 2.2 marqué ✅ (buffer guard appliqué). Les 4 defers restants (D2→Story 2.3, D3→Story 3.3, D4→architectural, D5→Story 2.3/tests) conservés 🔵.
+
+`pnpm build` et `pnpm typecheck` → exit 0 après patches. Story 2.2 → `done`. sprint-status mis à jour.
+
+**Entrées clés :**
+
+- [LRN-038](learnings/LRN-038.md) — "Fix les defers" : scanner les trivials applicables immédiatement
+- [EVAL-030](evals/EVAL-030.md) — Story 2.2 review complète, story → done
+
+---
+
+Session `/bmad-create-story 2.3` — création de la Story 2.3 : Découpe des frames par état.
+
+Session courte et sans blocage. Rituel de démarrage complet exécuté (5 registres mémoire + sprint-status + epics.md + architecture + story 2.2 + fichiers source existants + deferred-work.md).
+
+La story produite couvre 3 ACs BDD et inclut un skeleton `sliceFrames` copier-coller complet. Deux décisions de conception structurantes documentées dans la story. Première : `.png()` systématique en sortie de `sharp.extract()` — les frames doivent être en format PNG pour `apngasm-bin` (Story 2.4), quelle que soit la source spritesheet (`.webp` ou `.png`). Ce contrat inter-story est capturé dans [LRN-039](learnings/LRN-039.md). Deuxième : le deferred item D2 de Story 2.2 (Math.round masking) est traité partiellement — error wrapping sharp → `ValidationError` avec identification de l'état et du numéro de frame, sans clampage des bornes (clampage déféré post-v0.1 car il nécessiterait d'ajouter `totalWidth`/`totalHeight` dans `GridInfo`).
+
+Le script de validation `test-2-3.mjs` couvre 4 scénarios (2 URLs distantes + 2 fichiers locaux, conformément à [LRN-036](learnings/LRN-036.md)) et vérifie les magic bytes PNG de chaque frame extraite. Sprint-status mis à jour : story 2.3 → `ready-for-dev`.
+
+**Entrées clés :**
+
+- [LRN-039](learnings/LRN-039.md) — `.png()` systématique dans sliceFrames pour apngasm-bin
+- [EVAL-031](evals/EVAL-031.md) — Story 2.3 produite, keep
+
+---
+
+Session `/bmad-dev-story 2.3` — implémentation de la Story 2.3 : Découpe des frames par état.
+
+Session courte et sans blocage — la plus propre depuis Story 2.2. Le stub `export {};` de `src/core/slice-frames.ts` a été remplacé par l'implémentation complète (52 lignes) en une seule passe depuis le skeleton Dev Notes. Aucune décision technique, aucun diagnostic, aucun changement de direction — pattern [LRN-024](learnings/LRN-024.md) confirmé pour la 4ème fois sur ce projet.
+
+L'implémentation couvre : guard buffer vide en tête (cohérent avec `detectGrid`), itération `Object.entries(STATE_MAPPING)` avec cast `[ClawdState, ...][]`, calcul des coordonnées depuis `GridInfo` (pas de valeur hardcodée), `.png()` systématique après `.extract()` conformément au contrat [LRN-039](learnings/LRN-039.md), re-lancement des `ValidationError` avant wrapping pour éviter la double-encapsulation, et `onProgress` invoqué avant la découpe de chaque état.
+
+Validation en 4 phases annoncées séparément (LRN-037) : (1) téléchargement des fichiers de test `test-sprite.webp` + `test-sprite.png` ; (2) création de `test-2-3.mjs` ; (3) exécution → **548/548 assertions réussies** sur 4 scénarios (URL `.webp`, URL `.png`, fichier local `.webp`, fichier local `.png`) ; (4) suppression des 3 fichiers temporaires. Frontières architecturales vérifiées par grep : aucun import `cli/`, `adapters/`, `@clack/prompts`.
+
+`pnpm build` → exit 0, `dist/index.js` 207 B. `pnpm typecheck` → exit 0. Story 2.3 → `review`. Sprint-status mis à jour.
+
+**Entrées clés :**
+
+- [EVAL-032](evals/EVAL-032.md) — Story 2.3 implémentée, keep
+
+---
+
+Session `/bmad-code-review 2.3` — review complète de la Story 2.3 : Découpe des frames par état.
+
+Workflow exécuté en intégralité. Trois agents parallèles lancés : Blind Hunter (12 findings bruts), Edge Case Hunter (12 findings bruts dont 2 faux positifs liés à des erreurs dans le prompt d'agent — ECH-1 doublon `const result` et ECH-12 désync STATE_MAPPING inexistante), Acceptance Auditor (0 violation — AC1/AC2/AC3 tous satisfaits).
+
+Triage initial : 1 patch (P1 JSDoc sur `sliceFrames`), 5 defers, 14 dismissed.
+
+**Corrections appliquées :**
+
+P1 — JSDoc complète sur `sliceFrames` (pattern [LRN-025](learnings/LRN-025.md)).
+
+D1 + D3 résolus simultanément : `sharpBase = sharp(buffer)` créé une seule fois hors des boucles, `sharpBase.clone()` par frame dans un `Promise.all(Array.from({length: frames}, ...))`. Pattern documenté dans [LRN-041](learnings/LRN-041.md).
+
+D5 résolu : ratio `stateIndex / stateEntries.length` passé comme second argument à `onProgress` — `ProgressCallback` utilisé dans sa forme complète.
+
+D4 — initialement classé "defer — design decision" (messages d'erreur en français, décision de localisation non tranchée). Baptiste a signalé l'erreur de classification : il n'y a pas d'ambiguïté, l'anglais est la convention universelle pour une lib npm publique. D4 appliqué immédiatement sur les 3 modules Core (`fetch-spritesheet.ts` 7 strings, `detect-grid.ts` 3 strings, `slice-frames.ts` 3 strings). Build ✅ typecheck ✅. Pattern capturé dans [LRN-040](learnings/LRN-040.md), décision formalisée en [BDR-020](decisions/BDR-020.md).
+
+D2 (bornes extraction non pré-vérifiées) conservé ouvert — nécessite d'ajouter `totalWidth`/`totalHeight` dans l'interface `GridInfo`, changement multi-fichiers déféré post-v0.1.
+
+Scan opportuniste `deferred-work.md` : D2 de Story 2.2 (Math.round masking) marqué ✅ traitement partiel. Aucun autre item résolvable — tous bloqués Epic 3/4.
+
+Story 2.3 → `done`. Sprint-status mis à jour.
+
+**Entrées clés :**
+
+- [BDR-020](decisions/BDR-020.md) — Messages d'erreur Core en anglais
+- [LRN-040](learnings/LRN-040.md) — Convention universelle = patch non-ambigu
+- [LRN-041](learnings/LRN-041.md) — Pattern sharp clone + Promise.all frame-level
+- [LRN-042](learnings/LRN-042.md) — Faux positifs agents liés aux prompts
+- [EVAL-033](evals/EVAL-033.md) — Review Story 2.3 complète, keep
+
+---
+
+Session `/bmad-create-story 2.4` — création de la Story 2.4 : Encodage des APNGs par état.
+
+Avant de rédiger la story, une recherche préliminaire sur `apngasm-bin` a été conduite via un agent Explore. Découverte critique : le package n'exporte pas une fonction mais une **string** — le chemin vers l'exécutable natif (APNG Assembler v2.91). L'implémentation nécessite donc un workflow fichiers temporaires complet : `mkdtemp` → `writeFile` (frames PNG sur disque) → `execFileAsync(apngasm, [...args])` → `readFile` (APNG produit) → `rm` dans `finally`. Sur Windows, `execFile` n'utilisant pas de shell, les globs (`frame_*.png`) ne sont pas expandus — les chemins de frames doivent être passés individuellement. Ce pattern est documenté dans [LRN-043](learnings/LRN-043.md) et intégralement retranscrit dans le skeleton copier-coller de la story.
+
+La story produite couvre 4 ACs BDD (APNGs valides magic bytes + acTL, ValidationError par état, onProgress optionnel, NFR1 < 60s pipeline complet), le skeleton `encodeAPNGs` complet avec tous les imports `node:` built-ins, 9 règles anti-erreurs (dont la gestion des types TypeScript manquants pour `apngasm-bin`), et un script de validation `test-2-4.mjs` sur 4 scénarios (2 URLs + 2 fichiers locaux). Une typo d'URL (`9e3ra462` au lieu de `9e3fa462`) a été détectée et corrigée avant finalisation.
+
+En fin de session, Baptiste a signalé que les stories n'étaient pas triées dans le dossier `stories/`. Audit de la structure : seule la story 1.1 était correctement placée dans `stories/epic-1-*/` — les stories 1.2, 1.3, 2.1→2.4 étaient toutes à la racine de `implementation-artifacts/`. Correction appliquée : création de `stories/epic-2-pipeline-de-conversion-core/`, déplacement de toutes les stories dans leur sous-dossier d'epic respectif. Baptiste a ensuite demandé un dossier `retrospectives/` — créé et `epic-1-retro-2026-05-07.md` déplacé dedans. La structure finale est propre : `stories/`, `retrospectives/`, `reviews/` tous organisés par epic. Décision formalisée en [BDR-021](decisions/BDR-021.md).
+
+**Entrées clés :**
+
+- [LRN-043](learnings/LRN-043.md) — `apngasm-bin` = chemin binaire string, workflow temp files obligatoire
+- [BDR-021](decisions/BDR-021.md) — Organisation `stories/epic-X/` + `retrospectives/` dans impl-artifacts
+- [EVAL-034](evals/EVAL-034.md) — Story 2.4 créée, keep
+
+---
+
+Session `/bmad-dev-story 2.4` — implémentation de la Story 2.4 : Encodage des APNGs par état.
+
+Session courte mais avec deux blocages techniques inédits résolus rapidement. Le stub `export {};` de `src/core/encode-apngs.ts` a été remplacé par l'implémentation complète (84 lignes) en une seule passe depuis le skeleton Dev Notes — pattern [LRN-024](learnings/LRN-024.md) confirmé une 5ème fois.
+
+**Blocage 1 — TypeScript TS2666** : le bloc `declare module "apngasm-bin"` placé inline dans `encode-apngs.ts` (qui a des imports) était traité comme une augmentation de module et non une déclaration ambiante. Erreurs : TS2666 (exports interdits en augmentation), TS2300 (duplicate identifier), TS2693 (type utilisé comme valeur). Fix : création de `src/apngasm-bin.d.ts` sans aucun import (contexte script → déclaration ambiante valide). Pattern capturé dans [LRN-045](learnings/LRN-045.md).
+
+**Blocage 2 — ENOENT au runtime** : `execFileAsync(apngasm, [...])` levait `ENOENT` malgré que `import apngasm from "apngasm-bin"` retournait un chemin. Cause : le script postinstall de `apngasm-bin` (`node lib/install.js`) n'avait pas été exécuté par pnpm (scripts bloqués). Ce script utilise `BinWrapper.run()` pour déployer le binaire de `vendor/win/x64/apngasm.exe` vers `vendor/apngasm.exe` (chemin attendu par `BinWrapper.path()`). Fix : exécution manuelle de `node lib/install.js` dans le dossier du package. Pattern capturé dans [LRN-044](learnings/LRN-044.md).
+
+Validation en 3 phases annoncées ([LRN-037](learnings/LRN-037.md)) : (1) téléchargement `test-sprite.webp` + `test-sprite.png` + création `test-2-4.mjs` ; (2) exécution → **75/75 assertions réussies** sur 4 scénarios (URL .webp, URL .png, fichier local .webp, fichier local .png) — NFR1 : 20–35s < 60s ; (3) suppression des 3 fichiers temporaires. Frontières architecturales vérifiées par grep : 0 import `cli/`, `adapters/`, `@clack/prompts`.
+
+`pnpm build` → exit 0 ✅ `pnpm typecheck` → exit 0 ✅ Story 2.4 → `review`. Sprint-status mis à jour.
+
+**Entrées clés :**
+
+- [LRN-044](learnings/LRN-044.md) — `apngasm-bin` postinstall bloqué par pnpm → `node lib/install.js` manuel
+- [LRN-045](learnings/LRN-045.md) — `declare module` inline = augmentation (TS2666) → `.d.ts` séparé requis
+- [EVAL-035](evals/EVAL-035.md) — Story 2.4 implémentée, keep
+
+---
+
+Post-implémentation Story 2.4 : découverte bug blank frame + correction STATE_MAPPING + validation sima.
+
+Après la story, Baptiste a inspecté les APNGs générés et signalé une frame vide dans les animations. Un script `inspect-apng.mjs` a permis de lire les chunks PNG bruts : `acTL num_frames=7` au lieu de 8, et une frame `1×1 at (0,0) delay=2/10s` en fin de séquence — signe classique d'une optimisation delta apngasm sur des frames identiques. Cause racine : `STATE_MAPPING` avait `frames: 8` pour tous les états, mais les spritesheets Petdex ont des counts non uniformes. Baptiste a compté manuellement ligne par ligne et fourni les vraies valeurs : 6/8/8/4/5/8/6/6/6.
+
+Baptiste a également fourni le mapping complet des événements Codex avec les noms officiels des 9 états (idle, run right, run left, waving, jumping, failed, waiting, running, review) et sa correspondance avec les 8 états Clawd on Desk. Points structurants : (1) les lignes 2 et 3 (run right/left) restent non mappées — potentiellement utilisables pour des événements DnD d'avatar dans de futures versions de Clawd on Desk ; (2) `notification` et `waking` partagent la même animation Codex (waving, row 3 → row index 3, 4 frames). Aucun état Clawd oublié — tous les 8 sont couverts.
+
+`src/core/state-mapping.ts` corrigé avec les rows et frames exacts pour chaque état. Commentaire inline référençant [BDR-022](decisions/BDR-022.md) ajouté. Build ✅ typecheck ✅. Validation finale sur sima (`sprite.webp`) : 8 APNGs générés, animations fluides, frame 1×1 fantôme disparue (`acTL num_frames=6` pour idle). Fichiers temporaires purgés.
+
+**Entrées clés :**
+
+- [BDR-022](decisions/BDR-022.md) — mapping Codex→Clawd validé terrain, source de vérité STATE_MAPPING
+- [LRN-046](learnings/LRN-046.md) — frame counts non uniformes → blank frame si on découpe toujours 8 colonnes
+- [LRN-047](learnings/LRN-047.md) — apngasm delta 1×1 fantôme sur frames identiques/vides
+- [EVAL-036](evals/EVAL-036.md) — correction STATE_MAPPING + validation sima, keep
+
+---
+
+Session `/bmad-code-review 2.4` — review de la Story 2.4 : Encodage des APNGs par état.
+
+Trois agents parallèles lancés sur le diff Story 2.4 (`encode-apngs.ts` +76/-1, `state-mapping.ts` +20/-10, `apngasm-bin.d.ts` nouveau fichier). Triage : 3 patches, 6 defers, 12 dismissed.
+
+**P1 — TDZ dans `finally`** (Blind Hunter + Edge Case Hunter) : `const tempDir = await mkdtemp(...)` était déclaré hors du bloc `try`. Si `mkdtemp` throw (ENOSPC, EACCES), le binding `const` est en Temporal Dead Zone — le `finally` tente `rm(tempDir)` sur une variable non initialisée → `ReferenceError` masquant l'erreur originale. Fix : `let tempDir: string | undefined` avant le `try`, `if (tempDir)` guard dans `finally`. Pattern capturé dans [LRN-048](learnings/LRN-048.md).
+
+**P2 — `onProgress` jamais à 1.0** (Blind Hunter + Acceptance Auditor) : l'appel `onProgress?.(..., stateIndex / total)` avant chaque encodage émet de 0/8 à 7/8 — la `ProgressCallback` est documentée `@param progress 0–1`. Fix : appel déplacé après le bloc `try/finally` avec ratio `(stateIndex + 1) / total`. Pattern capturé dans [LRN-049](learnings/LRN-049.md).
+
+**P3 — JSDoc manquante** dans `apngasm-bin.d.ts` : commentaire ajouté pour préciser que la `string` exportée est le chemin absolu vers le binaire natif (`execFile`, jamais appel direct).
+
+**Fixes opportunistes :** D6 Story 1.3 résolu (JSDoc `AdapterInput.outputDir` — contrat Core vs adapter dans `types.ts`) ; D5 Story 2.2 clôturé comme obsolète (frames sont désormais des valeurs empiriques BDR-022, plus dérivées de `STANDARD_COLS`) ; commentaire erroné `detect-grid.ts` ligne 15 corrigé (disait "row 8 ignorée" alors que `thinking` mappe sur row 8 depuis BDR-022) ; D1 Story 2.1 marqué traitement partiel.
+
+Build ✅ typecheck ✅ après tous les patches. Story 2.4 → `done`. Sprint-status mis à jour. Epic 2 entièrement terminée — toutes les 4 stories à `done`.
+
+**Entrées clés :**
+
+- [LRN-048](learnings/LRN-048.md) — TDZ dans finally : `let v: T | undefined` + `if (v)` guard
+- [LRN-049](learnings/LRN-049.md) — onProgress : appel après opération, ratio `(i+1)/total`
+- [EVAL-037](evals/EVAL-037.md) — review Story 2.4, keep
+
+---
+
+Session `/bmad-retrospective epic-2` — rétrospective du Pipeline de Conversion Core.
+
+L'Epic 2 est 100% complet : 4 stories toutes en `done` (2.1 fetchSpritesheet, 2.2 detectGrid + STATE_MAPPING, 2.3 sliceFrames, 2.4 encodeAPNGs). La rétrospective a été conduite en party mode avec analyse complète des 4 story files, 4 review files, deferred-work.md et retro Epic 1 avant la discussion.
+
+**Succès majeurs :** 5/5 engagements Epic 1 honorés (premier epic où le taux est parfait), pattern skeleton Dev Notes × 5 confirmé, 44% des defers résolus opportunistement (12/27), 623 assertions passées sur 2 stories, protocole test vrais fichiers intégré en pratique permanente.
+
+**Point structurant de la session — validation visuelle obligatoire :** Baptiste a verbalisé explicitement que sans son inspection visuelle des APNGs générés après Story 2.4, des animations fausses auraient été livrées en Epic 3. Les 75 tests automatisés (magic bytes + chunk acTL) validaient la structure des fichiers mais pas le contenu animé. La cause : frame counts Petdex non uniformes par état (6/8/8/4/5/8/6/6/6) — des données empiriques non documentables dans les specs, accessibles uniquement en regardant les vrais fichiers. Ce pattern a été formalisé en [LRN-050](learnings/LRN-050.md) et en action item A1 (AC explicite de validation visuelle dans toute story produisant des artefacts empiriques).
+
+**Autres difficultés documentées :** BLK-011 (apngasm-bin postinstall pnpm) avec implication CI pour Story 4.1 ; BLK-010 (TS2666 declare module inline) ; mauvaise classification D4 review 2.3 (messages FR → recadrée par Baptiste → BDR-020).
+
+Sprint-status mis à jour : `epic-2` → `done`, `epic-2-retrospective` → `done`. Rétrospective sauvegardée dans `retrospectives/epic-2-retro-2026-05-07.md`. Epic 3 peut démarrer.
+
+**Entrées clés :**
+
+- [LRN-050](learnings/LRN-050.md) — tests bytes/chunks APNG ≠ validation visuelle des animations
+- [EVAL-038](evals/EVAL-038.md) — Rétrospective Epic 2 produite, keep
