@@ -30,3 +30,4 @@ last_updated: 2026-05-05
 | [EVAL-021](evals/EVAL-021.md) | 2026-05-06 | Story 1.3 implémentée — CONTRIBUTING.md créé en anglais (BDR-018), 3 ACs couverts, story → review             | keep      |
 | [EVAL-022](evals/EVAL-022.md) | 2026-05-06 | Story 1.3 review complète — 1 patch appliqué (P2), 1 patch→defer (P1 lint), 6 defer, 19 dismiss, story → done | keep      |
 | [EVAL-023](evals/EVAL-023.md) | 2026-05-07 | Rétrospective Epic 1 produite — bilan 3 stories, 2 action items, 6 spritesheets référencées, Epic 2 prêt      | keep      |
+| [EVAL-024](evals/EVAL-024.md) | 2026-05-07 | PR description `epic-1 → development` générée — bilingue FR/EN, 11 commits, métriques vérifiées sur git       | keep      |
