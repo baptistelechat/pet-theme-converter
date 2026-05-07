@@ -32,6 +32,19 @@ Statuts : 🔵 Ouvert | ✅ Résolu | 🚫 Annulé
 
 ---
 
+## Deferred from: code review of 2-1-telechargement-et-validation-de-la-spritesheet (2026-05-07)
+
+- 🔵 **D1 — Limite de taille / buffer vide** — `arrayBuffer()` sans cap mémoire + `readFile` retourne un Buffer vide (0 octets) sans erreur → corruption APNG silencieuse downstream. Scope Story 2.4 ou Story 3.4.
+- 🔵 **D2 — URL complète dans messages d'erreur** — L'URL entière (potentiellement avec tokens en query string) est injectée dans les messages `FetchError`. Scope Story 3.4 (messages d'erreur & logging).
+- 🔵 **D3 — Content-Type allowlist vs `startsWith("image/")`** — `image/svg+xml`, `image/gif` etc. acceptés silencieusement. Décision architecturale requise. Scope Story 2.x ou Epic 3.
+- 🔵 **D4 — `onProgress` appelé hors try/catch** — Exception du callback propagée sans wrapper `FetchError`/`ValidationError`. Risque faible (callback interne). Scope Story 3.3.
+- 🔵 **D5 — HTTP URLs acceptées sans warning** — `isUrl()` accepte `http:` et `https:` sans distinction. Ambiguïté spec AC1. Scope Story 3.3 ou 3.4.
+- 🔵 **D6 — `timeout = 0` ou négatif non validé** — Abort immédiat au premier tick, message "Timeout dépassé (0s)" sans guard. Scope Story 3.3 (CLI layer input validation).
+- 🔵 **D7 — Protocoles non-HTTP non rejetés explicitement** — `file://`, `data:`, `ftp://` tombent silencieusement dans `fetchFromLocal()`. Scope Story 3.3 (CLI layer).
+- 🔵 **D8 — Source vide ou invalide non gardée** — `fetchSpritesheet("")` → `FetchError("Fichier introuvable : ")` sans contexte. Scope Story 3.3 (CLI layer input validation).
+
+---
+
 ## Deferred from: code review of 1-2-interface-publique-outputadapter-et-types-partages (2026-05-05)
 
 - ✅ **ThemeManifest.compatibleWith non validé** — Résolu dans review Story 1.2 (2026-05-05) : JSDoc `/** Format attendu : "clawd-on-desk@1.x" */` ajouté sur le champ.
