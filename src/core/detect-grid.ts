@@ -19,9 +19,7 @@ const STANDARD_CELL_HEIGHT = 208;
 
 export const detectGrid = async (buffer: Buffer): Promise<GridInfo> => {
   if (!buffer || buffer.length === 0)
-    throw new ValidationError(
-      "Buffer vide : aucune donnée de spritesheet à lire.",
-    );
+    throw new ValidationError("Empty buffer: no spritesheet data to read.");
 
   let width: number;
   let height: number;
@@ -30,7 +28,7 @@ export const detectGrid = async (buffer: Buffer): Promise<GridInfo> => {
     const metadata = await sharp(buffer).metadata();
     if (!metadata.width || !metadata.height) {
       throw new ValidationError(
-        "Impossible de lire les dimensions de la spritesheet : métadonnées absentes.",
+        "Cannot read spritesheet dimensions: metadata is missing.",
       );
     }
     width = metadata.width;
@@ -38,7 +36,7 @@ export const detectGrid = async (buffer: Buffer): Promise<GridInfo> => {
   } catch (err) {
     if (err instanceof ValidationError) throw err;
     throw new ValidationError(
-      `Impossible de lire la spritesheet : ${err instanceof Error ? err.message : String(err)}`,
+      `Cannot read spritesheet: ${err instanceof Error ? err.message : String(err)}`,
     );
   }
 

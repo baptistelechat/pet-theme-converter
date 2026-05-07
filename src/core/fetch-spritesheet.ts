@@ -23,7 +23,7 @@ const fetchFromUrl = async (
   timeout: number,
   onProgress?: ProgressCallback,
 ): Promise<Buffer> => {
-  onProgress?.("Téléchargement de la spritesheet");
+  onProgress?.("Downloading spritesheet");
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeout);
@@ -33,14 +33,14 @@ const fetchFromUrl = async (
 
     if (!response.ok) {
       throw new FetchError(
-        `URL inaccessible (HTTP ${response.status}) : ${url}`,
+        `URL not accessible (HTTP ${response.status}): ${url}`,
       );
     }
 
     const contentType = response.headers.get("content-type") ?? "";
     if (!contentType.toLowerCase().startsWith("image/")) {
       throw new ValidationError(
-        `Content-Type non supporté : "${contentType}". Une image est attendue.`,
+        `Unsupported Content-Type: "${contentType}". An image is expected.`,
       );
     }
 
@@ -50,11 +50,11 @@ const fetchFromUrl = async (
     if (err instanceof FetchError || err instanceof ValidationError) throw err;
     if (err instanceof Error && err.name === "AbortError") {
       throw new FetchError(
-        `Timeout dépassé (${timeout / 1000}s) lors du téléchargement de ${url}`,
+        `Request timeout (${timeout / 1000}s) while downloading ${url}`,
       );
     }
     throw new FetchError(
-      `Impossible d'accéder à l'URL : ${url}. ${err instanceof Error ? err.message : String(err)}`,
+      `Cannot access URL: ${url}. ${err instanceof Error ? err.message : String(err)}`,
     );
   } finally {
     clearTimeout(timer);
@@ -65,13 +65,13 @@ const fetchFromLocal = async (
   filePath: string,
   onProgress?: ProgressCallback,
 ): Promise<Buffer> => {
-  onProgress?.("Lecture de la spritesheet locale");
+  onProgress?.("Reading local spritesheet");
 
   try {
     return await readFile(filePath);
   } catch (err) {
     throw new FetchError(
-      `Erreur d'accès au fichier : ${filePath}. ${err instanceof Error ? err.message : String(err)}`,
+      `Cannot read file: ${filePath}. ${err instanceof Error ? err.message : String(err)}`,
     );
   }
 };

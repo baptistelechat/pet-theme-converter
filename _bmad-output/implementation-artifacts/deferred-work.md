@@ -58,7 +58,17 @@ Statuts : 🔵 Ouvert | ✅ Résolu | 🚫 Annulé
 ## Deferred from: code review of 2-2-detection-de-la-grille-et-state-mapping (2026-05-07)
 
 - ✅ **D1 — Buffer vide → ValidationError générique** — Résolu opportunistement (2026-05-07) : guard `buffer.length === 0` ajouté en tête de `detectGrid`, lance `ValidationError("Buffer vide : aucune donnée de spritesheet à lire.")` avant tout appel sharp.
-- 🔵 **D2 — Math.round masque spritesheets non-alignées** — `cellWidth`/`cellHeight` arrondis peuvent produire des valeurs qui ne reconstituent pas les dimensions réelles ; `sliceFrames` doit en tenir compte lors de la découpe. Scope Story 2.3.
+- ✅ **D2 — Math.round masque spritesheets non-alignées** — Résolu partiellement dans Story 2.3 (2026-05-07) : sharp catch les extractions hors-bornes et les relance en `ValidationError` avec état + numéro de frame. Clampage complet déféré (nécessite `totalWidth`/`totalHeight` dans `GridInfo`) → D2 Story 2.3.
 - 🔵 **D3 — `detectGrid` sans `onProgress`** — Contrairement à `fetchSpritesheet`, `detectGrid` n'accepte pas de callback de progression. L'étape sera invisible dans la barre de progression CLI. Scope Story 3.3.
 - 🔵 **D4 — `ValidationError` mélange format invalide et erreur opérationnelle** — Les erreurs sharp (I/O, mémoire) et les vrais formats invalides sont tous enveloppés dans `ValidationError` sans distinction. Architecture actuelle sans erreur opérationnelle dédiée. Scope architectural.
 - 🔵 **D5 — `frames: 8` non synchronisé avec `STANDARD_COLS`** — Si `STANDARD_COLS` est modifié dans `detect-grid.ts`, `frames` dans `state-mapping.ts` ne sera pas mis à jour automatiquement. Aucune assertion runtime. Scope Story 2.3 / tests futurs.
+
+---
+
+## Deferred from: code review of 2-3-decoupe-des-frames-par-etat (2026-05-07)
+
+- ✅ **D1 — `sharp(buffer)` réinstancié 64× sans `.clone()`** — Résolu opportunistement (2026-05-07) : `sharpBase = sharp(buffer)` créé une fois hors boucles, chaque frame utilise `sharpBase.clone()`.
+- 🔵 **D2 — Bornes extraction non pré-vérifiées vs dimensions réelles** — `left + cellWidth` / `top + cellHeight` non comparés aux dimensions réelles avant extraction. Mitigation : sharp catch et ValidationError wrapping avec état + frame. Clampage complet nécessite `totalWidth`/`totalHeight` dans `GridInfo`. Scope post-v0.1.
+- ✅ **D3 — Await séquentiel non parallélisé** — Résolu opportunistement (2026-05-07) : `Promise.all(Array.from({length: frames}, ...))` sur la boucle frame-level. 8 frames par état extraites en parallèle, états séquentiels.
+- ✅ **D4 — Messages d'erreur en français dans une lib publique** — Résolu opportunistement (2026-05-07) : tous les messages des 3 modules Core (`fetch-spritesheet.ts`, `detect-grid.ts`, `slice-frames.ts`) traduits en anglais. Build ✅, typecheck ✅.
+- ✅ **D5 — `onProgress` sans ratio 0-1** — Résolu opportunistement (2026-05-07) : ratio `stateIndex / stateEntries.length` passé comme second argument à `onProgress`.

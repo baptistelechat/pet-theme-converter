@@ -35,7 +35,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: 2026-05-05
-last_updated: 2026-05-07 (story 2.2 → done)
+last_updated: 2026-05-07 (story 2.3 → done)
 project: pet-theme-converter
 project_key: NOKEY
 tracking_system: file-system
@@ -53,7 +53,7 @@ development_status:
   epic-2: in-progress
   2-1-telechargement-et-validation-de-la-spritesheet: done
   2-2-detection-de-la-grille-et-state-mapping: done
-  2-3-decoupe-des-frames-par-etat: backlog
+  2-3-decoupe-des-frames-par-etat: done
   2-4-encodage-des-apngs-par-etat: backlog
   epic-2-retrospective: optional
 
