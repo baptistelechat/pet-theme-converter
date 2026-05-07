@@ -35,7 +35,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: 2026-05-05
-last_updated: 2026-05-07 (epic-1-retrospective → done)
+last_updated: 2026-05-07 (epic-2-retrospective → done)
 project: pet-theme-converter
 project_key: NOKEY
 tracking_system: file-system
@@ -43,19 +43,19 @@ story_location: _bmad-output/implementation-artifacts
 
 development_status:
   # ─── Epic 1 : Fondation du Projet & Architecture de Contribution ───────────
-  epic-1: in-progress
+  epic-1: done
   1-1-initialisation-du-projet-et-configuration-du-build: done
   1-2-interface-publique-outputadapter-et-types-partages: done
   1-3-documentation-de-contribution-contributing-md: done
   epic-1-retrospective: done
 
   # ─── Epic 2 : Pipeline de Conversion Core ─────────────────────────────────
-  epic-2: backlog
-  2-1-telechargement-et-validation-de-la-spritesheet: backlog
-  2-2-detection-de-la-grille-et-state-mapping: backlog
-  2-3-decoupe-des-frames-par-etat: backlog
-  2-4-encodage-des-apngs-par-etat: backlog
-  epic-2-retrospective: optional
+  epic-2: done
+  2-1-telechargement-et-validation-de-la-spritesheet: done
+  2-2-detection-de-la-grille-et-state-mapping: done
+  2-3-decoupe-des-frames-par-etat: done
+  2-4-encodage-des-apngs-par-etat: done
+  epic-2-retrospective: done
 
   # ─── Epic 3 : Expérience CLI & Livraison du Thème Clawd ───────────────────
   epic-3: backlog
