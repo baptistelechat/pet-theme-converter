@@ -681,3 +681,20 @@ Session courte et sans friction. Unique opération : exécution du skill `pr-des
 
 - [LRN-051](learnings/LRN-051.md) — Scope `-- src/` pour PR descriptions sur branches mixtes
 - [EVAL-039](evals/EVAL-039.md) — PR description `epic-2 → development`, keep
+
+---
+
+Session `/bmad-create-story 3.1` — création de la Story 3.1 : Génération du thème et packaging ZIP.
+
+Session courte et sans friction. Première story de l'Epic 3. Le rituel de démarrage a couvert les 5 registres mémoire, le sprint-status, l'epics.md, l'architecture, le deferred-work, la story 2.4 (story précédente) et les fichiers source existants (`src/types.ts`, `src/adapters/clawd.ts` stub, `package.json`, `tsconfig.json`).
+
+La story produite couvre 4 ACs BDD et inclut le skeleton copier-coller complet de `generateZip` — la seule fonction à implémenter dans cette story (périmètre ZIP uniquement, mode 'install' et `detectClawd()` déférés à Story 3.2). Points structurants du skeleton : alias `resolvePath` pour éviter la collision avec le paramètre `resolve` de la Promise, événement `output.on('close')` plutôt que `'finish'` pour garantir le flush disque, cast `buffer as Buffer` pour `Object.entries(apngs)`. `archiver@7` et `@types/archiver` sont déjà dans les dépendances — aucune installation requise.
+
+Deux échanges post-création : (1) Baptiste a demandé si le ZIP de Story 3.1 suffisait pour une validation alpha dans Clawd on Desk — réponse oui, extraction `Expand-Archive` dans `%LOCALAPPDATA%\Clawd on Desk\themes\` fonctionne directement ; Story 3.2 n'est que l'automatisation de ce geste. Pattern capturé dans [LRN-052](learnings/LRN-052.md). (2) Baptiste a demandé si on devait ajouter une commande npm permanente ou rester avec les scripts temporaires — réponse : scripts temporaires pour 3.1/3.2 (CLI pas encore prêt), `pnpm dev` à partir de Story 3.3, infrastructure de test permanente en Epic 4.
+
+Sprint-status mis à jour : `epic-3` → `in-progress`, story 3.1 → `ready-for-dev`.
+
+**Entrées clés :**
+
+- [LRN-052](learnings/LRN-052.md) — Alpha validation manuelle dès Story 3.1 via extraction ZIP
+- [EVAL-040](evals/EVAL-040.md) — Story 3.1 produite, keep

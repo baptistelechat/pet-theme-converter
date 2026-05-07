@@ -46,3 +46,4 @@ last_updated: 2026-05-05
 | [EVAL-037](evals/EVAL-037.md) | 2026-05-07 | Story 2.4 review complète — 3 patches + 3 opportunistic + 6 defers + 12 dismissed, build ✅, story → done       | keep      |
 | [EVAL-038](evals/EVAL-038.md) | 2026-05-07 | Rétrospective Epic 2 produite — 4 stories, 4 action items, validation visuelle formalisée, Epic 3 prêt          | keep      |
 | [EVAL-039](evals/EVAL-039.md) | 2026-05-07 | PR description `epic-2 → development` générée — bilingue FR/EN, 6 commits, 7 fichiers source, 321 insertions    | keep      |
+| [EVAL-040](evals/EVAL-040.md) | 2026-05-07 | Story 3.1 produite — skeleton `generateZip` complet, archiver pattern, 4 ACs BDD, alpha validation documentée   | keep      |
