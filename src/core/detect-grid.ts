@@ -12,7 +12,7 @@ export interface GridInfo {
 }
 
 const STANDARD_COLS = 8;
-// 9 rows total in the Petdex spritesheet; only rows 0–7 are used by Clawd (row 8 is ignored)
+// 9 rows total in the Petdex spritesheet (0-indexed); all 9 rows are mapped in STATE_MAPPING
 const STANDARD_ROWS = 9;
 const STANDARD_CELL_WIDTH = 192;
 const STANDARD_CELL_HEIGHT = 208;

@@ -19,6 +19,12 @@ export interface AdapterInput {
   /** Each Buffer must be non-empty — a zero-length buffer will produce a corrupt APNG. */
   apngs: Record<ClawdState, Buffer>;
   manifest: ThemeManifest;
+  /**
+   * Destination directory for the generated theme files.
+   * The Core does NOT guarantee this directory exists — the adapter is responsible
+   * for creating it if needed (e.g., via `fs.mkdir(outputDir, { recursive: true })`).
+   * Must be an absolute filesystem path.
+   */
   outputDir: string;
 }
 
