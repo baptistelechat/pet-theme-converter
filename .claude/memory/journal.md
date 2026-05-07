@@ -375,3 +375,25 @@ Scan opportuniste de deferred-work.md : tous les items ouverts (Story 1.1 × 7, 
 
 - [LRN-028](learnings/LRN-028.md) — patch→defer si script npm inexistant
 - [EVAL-022](evals/EVAL-022.md) — Story 1.3 review complète, keep
+
+## 2026-05-07
+
+Session `/bmad-retrospective epic-1` — première rétrospective du projet `pet-theme-converter`.
+
+L'Epic 1 (Fondation du Projet & Architecture de Contribution) est 100% complet : 3 stories toutes en `done` (1.1 initialisation build, 1.2 types/interfaces, 1.3 CONTRIBUTING.md). La rétrospective a été conduite en party mode avec analyse complète des story records, reviews et deferred-work avant la discussion.
+
+**Succès majeurs :** exécution sans blocage sur les 3 stories, pattern skeleton Dev Notes → zéro friction confirmé comme pratique à systématiser, détection précoce de `moduleResolution: "bundler"` avant qu'elle bloque Epic 2, 4 résolutions opportunistes pendant les reviews.
+
+**Friction principale : graphify.** Baptiste a révélé que le mode `--update` de graphify avait consommé 100% de son budget de session Claude Code sur une session de 5h — première fois sur ce projet. La cause est structurelle : le mode `--update` passe chaque fichier modifié par le LLM pour re-labelliser les communautés. Sur un projet 100% documentaire comme pet-theme-converter à ce stade, le coût est maximal pour une valeur quasi-nulle. [BDR-017](decisions/BDR-017.md) (arrêt définitif graphify) a été confirmé sans ambiguïté — graphify ne sera pas relancé avant l'existence d'une codebase lourde et complexe (pas avant Epic 3/4 minimum).
+
+**Learning `/find-docs` :** Baptiste a signalé que l'utilisation manuelle de `/find-docs` n'est pas adaptée — l'agent doit l'utiliser proactivement et automatiquement pour toute question de version, API ou documentation de package. Ce comportement est désormais intégré sans déclenchement manuel requis. Contexte : les faux positifs Blind Hunter (~50% sur stories de config) viennent du cutoff du modèle ; `/find-docs` (Context7) résout ce problème à la source.
+
+**Préparation Epic 2 :** Baptiste a fourni 6 URLs de spritesheets Petdex réelles. Observation critique : formats mixtes `.webp` ET `.png` coexistent, noms de fichiers variables (`sprite.webp` vs `spritesheet.webp`). Story 2.1 devra gérer les deux formats. `sharp` est connu superficiellement, `apngasm-bin` jamais utilisé — spike recommandé avant Story 2.4.
+
+Le document de rétrospective a été sauvegardé dans `_bmad-output/implementation-artifacts/epic-1-retro-2026-05-07.md`. Sprint-status mis à jour : `epic-1-retrospective: optional → done`. Epic 2 peut démarrer.
+
+**Entrées clés :**
+
+- [LRN-029](learnings/LRN-029.md) — Graphify `--update` = saturation 100% session budget sur corpus docs
+- [LRN-030](learnings/LRN-030.md) — Spritesheets Petdex : formats mixtes + noms variables
+- [EVAL-023](evals/EVAL-023.md) — Rétrospective Epic 1 produite, keep

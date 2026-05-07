@@ -29,3 +29,4 @@ last_updated: 2026-05-05
 | [EVAL-020](evals/EVAL-020.md) | 2026-05-06 | Story 1.3 produite — skeleton CONTRIBUTING.md complet, 3 ACs couverts, story purement documentaire            | keep      |
 | [EVAL-021](evals/EVAL-021.md) | 2026-05-06 | Story 1.3 implémentée — CONTRIBUTING.md créé en anglais (BDR-018), 3 ACs couverts, story → review             | keep      |
 | [EVAL-022](evals/EVAL-022.md) | 2026-05-06 | Story 1.3 review complète — 1 patch appliqué (P2), 1 patch→defer (P1 lint), 6 defer, 19 dismiss, story → done | keep      |
+| [EVAL-023](evals/EVAL-023.md) | 2026-05-07 | Rétrospective Epic 1 produite — bilan 3 stories, 2 action items, 6 spritesheets référencées, Epic 2 prêt      | keep      |
