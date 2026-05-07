@@ -670,3 +670,14 @@ Sprint-status mis à jour : `epic-2` → `done`, `epic-2-retrospective` → `don
 
 - [LRN-050](learnings/LRN-050.md) — tests bytes/chunks APNG ≠ validation visuelle des animations
 - [EVAL-038](evals/EVAL-038.md) — Rétrospective Epic 2 produite, keep
+
+---
+
+Session `/pr-description-writer` — génération de la PR description pour merger `epic-2` dans `development`.
+
+Session courte et sans friction. Unique opération : exécution du skill `pr-description-writer` avec les arguments `development epic-2`. Les données ont été collectées via trois commandes git (`git log`, `git diff --stat`, `git diff -- src/`). Le diff brut `--stat` retournait 66 fichiers — 59 hors-code (`.claude/memory/`, stories BMAD, reviews, retrospectives). La restriction `-- src/` a isolé les 7 fichiers source réels. L'analyse des 6 commits a permis de classer les changements en 4 fonctions Core (fetchSpritesheet, detectGrid + state-mapping, sliceFrames, encodeAPNGs). La description bilingue FR/EN produite couvre les métriques exactes vérifiées sur git (6 commits, 7 fichiers source, 321 insertions). Pattern de scoping `-- src/` capturé dans [LRN-051](learnings/LRN-051.md).
+
+**Entrées clés :**
+
+- [LRN-051](learnings/LRN-051.md) — Scope `-- src/` pour PR descriptions sur branches mixtes
+- [EVAL-039](evals/EVAL-039.md) — PR description `epic-2 → development`, keep
